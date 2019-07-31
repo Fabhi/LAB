@@ -1,0 +1,21 @@
+1.WAP to generate n prime numbers.
+2.WAP to find the sum of natural numbers upto n.
+3.Find the sum of the series:
+  1+1/2+1/3+...+1/n
+4.Create a student structure with student name, registration number, marks of 3 subjects. Compute the grade.
+5.a.Find the length of the string
+  b.count the number of symbols in the string
+  c.check if the string is palindrome or not
+  d.find the presence of substring in a string, if found display the index value.
+  e.Convert the characters of the string to uppercase.
+6.WAP to put an * between two repeating characters in a string.
+
+7.Create a banking application using structures.
+  a.Check whether the password is right to allow access.
+  b.10 Account Holders
+	1.Name
+	2.Balance
+	3.Account Number
+  c.Actions:
+	1.Deposit
+	2.Withdraw
