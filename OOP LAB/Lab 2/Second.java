@@ -5,9 +5,17 @@ public class Second{
         int i= scan.nextInt();
         double d= scan.nextDouble();
         char c= scan.next().charAt(0);
+        byte b= (byte) i;
+        int ii= (int) c;
+        byte db=(byte) d;
+        int di =(int) i; 
         System.out.println(i);
         System.out.println(d);
         System.out.println(c);
-        scan.close()
+        System.out.println(b);
+        System.out.println(ii);
+        System.out.println(db);
+        System.out.println(di);
+        scan.close();
     }
 }
