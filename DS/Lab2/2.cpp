@@ -32,5 +32,6 @@ class Student{
 int main(){
     Student s[10];
     s.read();
+    //This is better
     
 }
