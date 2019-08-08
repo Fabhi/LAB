@@ -3,9 +3,9 @@ public class Second{
     public static void main(String args[]){
         int ar[]= new int[10];
         int pos=0, neg=0, zero=0;
+        Scanner s=new Scanner(System.in);
         for(int i=0;i<ar.length;i++){
             System.out.println("Enter number at position "+i);
-            Scanner s=new Scanner(System.in);
             ar[i] = s.nextInt();
             if (ar[i]>0){
                 pos+=1;

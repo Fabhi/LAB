@@ -40,5 +40,6 @@ public class Fifth{
             System.out.println("Do another(y/n)?");
             ch= scan.next().charAt(0);
         }
+        scan.close(); 
     }
 }
