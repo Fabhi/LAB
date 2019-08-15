@@ -6,7 +6,7 @@ class Student{
         char grade;
         int roll;
     public:
-        Student(char name[],char grade, int roll): name=name[], grade(grade), roll(roll){
+        Student(char& n,char g, int r): name(n), grade(g), roll(r){
             cout<<"In the constructor.";
             }
         void printer(){
@@ -16,6 +16,7 @@ class Student{
         }
         };
 int main(){
-    Student S1("Abhishek",'A',50);
+    char a[]="Abhishek";
+    Student S1(a,'A',50);
     S1.printer();
 }  
