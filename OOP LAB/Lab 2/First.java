@@ -18,6 +18,7 @@ public class First{
             System.out.println("It is a leap year.");
 
         }
+        scan.close();
 
     }
 }
