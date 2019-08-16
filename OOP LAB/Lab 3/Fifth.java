@@ -8,7 +8,7 @@ public class Fifth{
         for(int i=0;i<n;i++){
             arr[i]=scan.nextInt();
         }
-        int key;
+        int key,flag=0;
         System.out.println("Enter the key:");
         key=scan.nextInt();
         System.out.print("The output is found at location:");
@@ -17,5 +17,7 @@ public class Fifth{
                 System.out.print("a["+i+"] ");
             }
         }
+        java.lang.System.exit(0);
+        System.out.print("NULL");
     }
 }
