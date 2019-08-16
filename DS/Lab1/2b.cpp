@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
-int main(){
-    int n;
-    cout<<"Enter the size of the array:";
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++){
-        cout<<"\nEnter the element at position "<<i<<":";
-        cin>>a[i];
-    }
+void selectionSort(int a[], int n){
     int temp;
     int min;
     for(int i=0;i<n;i++){
@@ -22,6 +14,17 @@ int main(){
         a[i]=a[min];
         a[min]=temp;
     }
+}
+int main(){
+    int n;
+    cout<<"Enter the size of the array:";
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cout<<"\nEnter the element at position "<<i<<":";
+        cin>>a[i];
+    }
+    selectionSort(a,n);
     for(int i=0;i<n;i++){
         cout<<"\n"<<a[i]<<endl;
     }

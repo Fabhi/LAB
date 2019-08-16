@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
-int main(){
-    int n;
-    cout<<"Enter the size of the array:";
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++){
-        cout<<"\nEnter the element at position "<<i<<":\n";
-        cin>>a[i];
-    }
+void bubbleSort(int a[], int n){
     int temp;
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -19,6 +11,17 @@ int main(){
             }
         }
     }
+}
+int main(){
+    int n;
+    cout<<"Enter the size of the array:";
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cout<<"\nEnter the element at position "<<i<<":\n";
+        cin>>a[i];
+    }
+    bubbleSort(a,n);
     for(int i=0;i<n;i++){
         cout<<a[i]<<endl;
     }
