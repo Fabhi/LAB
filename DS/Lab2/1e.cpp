@@ -34,8 +34,6 @@ int main(){
     for(int i=0;i<al-loc;i++){
         a[loc+i]=a[loc+bl+i];
     }
-    // al=strlen(a);
-    // a[al++]='\0';
     cout<<a;
 
 

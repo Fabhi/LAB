@@ -10,7 +10,7 @@ class timer{
 
     void read(){
         char ch=':';
-        cout<<"Enter the timer in the format HH:MM:SS"<<endl;
+        cout<<"Enter the time in the format HH:MM:SS"<<endl;
         cin>>hour>>ch>>min>>ch>>sec;
     }
 

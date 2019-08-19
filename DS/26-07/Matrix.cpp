@@ -68,5 +68,7 @@ int main(){
                         c[i][j]+=a[i][k]*b[k][j];}
                 cout<<c[i][j]<<" ";}
                 cout<<"\n";}}}
-    else{cout<<"Invalid Choice";return 0;}
+    else{
+        cout<<"Invalid Choice";
+        return 0;}
 }

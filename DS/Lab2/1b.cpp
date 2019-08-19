@@ -2,10 +2,10 @@
 using namespace std;
 int main(){
     char a[50];
-    cout<<"Enter the string:";
+    cout<<"Enter the string 1:";
     cin>>a;
     char b[50];
-    cout<<"Enter the string:";
+    cout<<"Enter the string 2:";
     cin>>b;
     int m;
     for(m=0;a[m]!='\0';m++);

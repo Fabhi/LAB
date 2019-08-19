@@ -48,24 +48,27 @@ int main(){
     int n;
     cout<<"Enter the size of the array:";
     cin>>n;
-    int a[n];
+    int a[n],b[n],c[n];
     for(int i=0;i<n;i++){
         cout<<"\nEnter the element at position "<<i<<":\n";
         cin>>a[i];
+        b[i]=a[i];
+        c[i]=a[i];
     }
+    
     bubbleSort(a,n);
     cout<<endl<<"Bubble Sort"<<endl;
     for(int i=0;i<n;i++){
         cout<<a[i]<<" ";
     }
-    selectionSort(a,n);
+    selectionSort(b,n);
     cout<<endl<<"Selection Sort"<<endl;
     for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
+        cout<<b[i]<<" ";
     }
-    insertionSort(a,n);
+    insertionSort(c,n);
     cout<<endl<<"Insertion Sort"<<endl;
     for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
+        cout<<c[i]<<" ";
     }
 }
