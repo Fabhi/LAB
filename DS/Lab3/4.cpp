@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 #define STACK_SIZE 100
+char open[]={'{','[','('};
+char close[]={'}',']',')'};
 using namespace std;
 class Stack {
     private:
@@ -44,20 +46,16 @@ class Stack {
 };
 
 int main(){
-    Stack stk1;
-    char a[50];
-    cout<<"Enter String:";
-    gets(a);
-    int n=strlen(a);
+    Stack para;
+    char ch[50];
+    gets(ch);
+    int n=strlen(ch);
     for(int i=0;i<n;i++){
-        stk1.push(a[i]);}
-    int i;
-    for(i=0;(i<n)&&(stk1.pop()==a[i]);++i){}
-    if(i==n){
-        cout<<"String is a palindrome.";
+        para.push(ch[i]);
+        if (para.peek()==ch[i]){
+            para.pop();
+        }
     }
-    else{
-        cout<<"String is not a palindrome.";
-    }
+    if(ch[])
 
 }
