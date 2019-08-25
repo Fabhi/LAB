@@ -23,7 +23,7 @@ class Stack {
     int pop(){
         if(top>=0) 
             return arr[top--];
-        cout<<"Stack Underflow!"<<endl;
+        cout<<"Underflow"<<endl;
         return -1;
     }
 
@@ -62,7 +62,7 @@ int main(){
         div=numb%base;
         numb=numb/base;
         New.push(div);
-    }while(numb>=base);
+    }   while(numb>=base);
     New.push(numb);
     New.display();
 }

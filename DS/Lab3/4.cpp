@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string.h>
-#include <stdio.h>
 #define STACK_SIZE 100
 char open[]={'{','[','('};
 char close[]={'}',']',')'};
@@ -43,13 +42,6 @@ class Stack {
             return true;
         }
         return false;
-    }
-
-    void display(){
-        for(int i=0;i<top;i++){
-            cout<<arr[i]<<' ';
-        }
-        cout<<endl;
     }
 };
 
