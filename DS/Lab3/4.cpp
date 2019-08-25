@@ -6,9 +6,11 @@ char open[]={'{','[','('};
 char close[]={'}',']',')'};
 using namespace std;
 class Stack {
+
     private:
     int top;
-    char arr[STACK_SIZE];
+    char arr[STACK_SIZE]={'\0'};
+
     public:
     Stack(){
         top=-1;
@@ -22,26 +24,32 @@ class Stack {
         }
     }
 
-    int pop(){
+    char pop(){
         if(top>=0)
             return arr[top--];
-        cout<<"Stack Underflow!"<<endl;
         return -1;
     }
 
-    int peek(){
+    char peek(){
         if(top>=0)
             return arr[top];
         else{
-            cout<<"Underflow"<<endl;
             return -1;
         }
     }
 
-    void display(){
-        for(int i=top;i>=0;i--){
-            cout<<arr[i]<<endl;
+    bool isEmpty(){
+        if(top==-1){
+            return true;
         }
+        return false;
+    }
+
+    void display(){
+        for(int i=0;i<top;i++){
+            cout<<arr[i]<<' ';
+        }
+        cout<<endl;
     }
 };
 
@@ -51,11 +59,20 @@ int main(){
     gets(ch);
     int n=strlen(ch);
     for(int i=0;i<n;i++){
-        para.push(ch[i]);
-        if (para.peek()==ch[i]){
-            para.pop();
+        for(int j=0;j<3;j++){
+            if(open[j]==ch[i]){
+                para.push(ch[i]);
+            }
+            else if(ch[i]==close[j] & para.peek()==open[j]){
+                para.pop();
+            }
         }
     }
-    if(ch[])
-
+    if (para.isEmpty()){
+        cout<<"Paranthesis are balanced."<<endl;
+        return 1;
+    }
+    cout<<"Paranthesis are not balanced."<<endl;
+    return 0;
+    
 }
