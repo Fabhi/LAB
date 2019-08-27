@@ -47,5 +47,6 @@ public class Fourth{
             }
             System.out.println();
         }
+        scan.close();
     }
 }

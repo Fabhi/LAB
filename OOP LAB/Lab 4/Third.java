@@ -31,5 +31,6 @@ public class Third{
         else{
             System.out.println("The matrix is non-symmetric");
         }
+        scan.close();
     }
 }

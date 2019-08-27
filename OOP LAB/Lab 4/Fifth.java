@@ -53,5 +53,7 @@ public class Fifth{
                 System.out.println("Magic square");
         else
                 System.out.println("Not a magic square");
+        
+        scan.close();
     }
 }

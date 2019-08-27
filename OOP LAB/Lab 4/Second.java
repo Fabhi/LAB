@@ -21,5 +21,6 @@ public class Second{
             }
         }
         System.out.println(prin);
+        scan.close();
     }
 }

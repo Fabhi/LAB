@@ -22,5 +22,6 @@ public class First{
             }
         
         System.out.println(non);
+        scan.close();
     }
 }
