@@ -45,6 +45,7 @@ class Sparse{
 
 
 int main(){
+    //Accepting the input in the Square Matrix form
     int m,n;
     cout<<"Enter the size of the matrix:"<<endl;
     cin>>m>>n;
@@ -58,6 +59,7 @@ int main(){
                 count++;
         }
     }
+
     //Developing a sparse matrix
     Sparse s[count+1];
     s[0].set(m,n,count);
@@ -69,14 +71,16 @@ int main(){
             }
         }
     }
+
+    //Original Matrix
     cout<<"Matrix before Transposing"<<endl;
     for(int k=0;k<=count;k++){
         s[k].display();
     }
 
     Sparse b[count+1], temp;
-    temp.FTranspose(s,b);
     cout<<"Matrix after Transposing"<<endl;
+    temp.FTranspose(s,b);
     for(int k=0;k<=count;k++){
         b[k].display();
     }
