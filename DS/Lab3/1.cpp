@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
-#define STACK_SIZE 100
 using namespace std;
+#define STACK_SIZE 100
 class Stack {
     private:
     int top;

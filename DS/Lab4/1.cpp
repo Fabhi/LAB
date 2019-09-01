@@ -14,7 +14,7 @@ class CQueue{
     }
 
     bool isEmpty(){
-        if (front==-1&& rear==-1){
+        if (front==-1 && rear==-1){
             return true;
         }
         return false;
@@ -41,8 +41,9 @@ class CQueue{
     }
 
     int deq(){
-        if(isEmpty())
+        if(isEmpty()){
             cout<<"Empty queue"<<endl;
+            return -1;}
         else{
             int elem=arr[front];
             if (front==rear)
@@ -51,7 +52,6 @@ class CQueue{
                 front=(front+1)%SIZE;
             return elem;
         }
-        return -1;
     }
 
     void display(){
@@ -59,22 +59,40 @@ class CQueue{
         for (i=front;i!=rear;i=(i+1)%SIZE){
             cout<<arr[i]<<' ';
         }
-        cout<<arr[i]<<' ';
-        cout<<endl;
+        cout<<arr[i]<<endl;
     }
 };
 
 int main(){
-    CQueue C;
-    C.deq();
-    C.enq(0);
-    C.enq(1);
-    C.enq(2);
-    C.enq(3);
-    C.display();
-    C.deq();
-    C.deq();
-    C.enq(11);
-    C.enq(12);
-    C.display();
+    CQueue cq;
+    int choice, item;
+    do
+    {
+        cout<<"1.Insert"<<endl;
+        cout<<"2.Delete"<<endl;
+        cout<<"3.Display"<<endl;
+        cout<<"4.Quit"<<endl;
+        cout<<"Enter your choice : ";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            cout<<"Input the element for insertion in queue : ";
+            cin>>item;	
+            cq.enq(item);
+	        break;
+	    case 2:
+            cq.deq();
+	        break;
+        case 3:
+            cq.display();
+	        break;
+	    case 4:
+	        break;
+	    default:
+	        cout<<"Wrong choice"<<endl;
+	    }
+    } while(choice != 4);
+    return 0;
+
 }
