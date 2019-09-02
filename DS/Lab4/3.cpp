@@ -32,7 +32,7 @@ class Sparse{
 
     }
     void display(){
-        cout<<row<<' '<<column<<' '<<value<<" "<<endl;
+        cout<<row<<' '<<column<<' '<<value<<endl;
     }
 
 };
@@ -69,8 +69,8 @@ int main(){
     }
 
     Sparse b[count+1], temp;
-    temp.nTranspose(s,b);
     cout<<"Matrix after Transposing"<<endl;
+    temp.nTranspose(s,b);
     for(int k=0;k<=count;k++){
         b[k].display();
     }
