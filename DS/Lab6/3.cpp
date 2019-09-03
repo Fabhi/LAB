@@ -1,4 +1,4 @@
-//Program to convert a Postfix expression to an Infix expression
+//Program to convert a Prefix expression to an Infix expression
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -30,9 +30,10 @@ class Stack{
     }
 };
 
-string postToInfix(string pre){
+string pretoInfix(string pre){
     Stack s;
     string output, final;
+    reverse(pre.begin(),pre.end());
     int l=pre.length();
     for(int i=0;i<l;i++){
         if(isdigit(pre[i])||isalpha(pre[i])){
@@ -46,12 +47,23 @@ string postToInfix(string pre){
         }
     }
     output=s.peek();
-    return output;
+    int len=output.length();
+    for(int i=len-1;i>=0;i--){
+        if(output[i]=='('){
+            final+=')';}
+        else if(output[i]==')'){
+            final+='(';}
+        else
+        {
+            final+=output[i];
+        }
+    }
+    return final;
 }
 
 int main(){
     string inp;
     cout<<"Enter the expression:";
     cin>>inp;
-    cout<<postToInfix(inp);
+    cout<<pretoInfix(inp);
 }
