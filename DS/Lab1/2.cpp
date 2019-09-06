@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 
+//N-1 PASSES
 void bubbleSort(int a[], int n){
     int temp;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
             if(a[j]>a[j+1]){
                 temp=a[j+1];
                 a[j+1]=a[j];
@@ -14,10 +15,11 @@ void bubbleSort(int a[], int n){
     }
 }
 
+// N-1 PASSES
 void selectionSort(int a[], int n){
     int temp;
     int min;
-    for(int i=0;i<n;i++){
+    for(int i=0;i<n-1;i++){
         min=i;
         for(int j=i+1;j<n;j++){
             if(a[j]<a[min]){
@@ -30,6 +32,7 @@ void selectionSort(int a[], int n){
     }
 }
 
+// N-1 PASSES
 void insertionSort(int array[], int size){
     for(int step=1; step<size; step++){
         int key = array[step];
@@ -41,6 +44,7 @@ void insertionSort(int array[], int size){
         array[j+1]=key;
     }
 }
+
 
 
 
