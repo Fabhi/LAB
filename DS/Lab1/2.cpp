@@ -3,7 +3,9 @@ using namespace std;
 
 void bubbleSort(int a[], int n){
     int temp;
+    int count=0;
     for(int i=0;i<n;i++){
+        count++;
         for(int j=0;j<n;j++){
             if(a[j]>a[j+1]){
                 temp=a[j+1];
@@ -12,12 +14,15 @@ void bubbleSort(int a[], int n){
             }
         }
     }
+    cout<<endl<<count<<endl;
 }
 
 void selectionSort(int a[], int n){
     int temp;
+    int count=0;
     int min;
     for(int i=0;i<n;i++){
+        count++;
         min=i;
         for(int j=i+1;j<n;j++){
             if(a[j]<a[min]){
@@ -28,18 +33,22 @@ void selectionSort(int a[], int n){
         a[i]=a[min];
         a[min]=temp;
     }
+    cout<<endl<<count<<endl;
 }
 
 void insertionSort(int array[], int size){
-  for(int step=1; step<size; step++){
-    int key = array[step];
-    int j=step-1;
-    while(key<array[j] && j>=0){
-        array[j+1] = array[j];
-        --j;
+    int count=0;
+    for(int step=1; step<size; step++){
+        count++;
+        int key = array[step];
+        int j=step-1;
+        while(key<array[j] && j>=0){
+            array[j+1] = array[j];
+            --j;
+        }
+        array[j+1]=key;
     }
-    array[j+1]=key;
-  }
+    cout<<endl<<count<<endl;
 }
 
 
