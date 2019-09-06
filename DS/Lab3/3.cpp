@@ -1,3 +1,4 @@
+//Program to implement N stacks in a single array
 #include <iostream>
 using namespace std;
 const int SIZE=10;
@@ -23,7 +24,7 @@ class NStacks{
     }
 
     bool isFull(int stk){
-        if(top[stk]+1==bot[stk]){
+        if(top[stk]+1==bot[stk+1]){
             return true;
         }
         return false;

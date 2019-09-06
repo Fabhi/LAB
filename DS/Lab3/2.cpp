@@ -1,3 +1,4 @@
+//Program to convert decimal number to any base
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
@@ -12,7 +13,7 @@ class Stack {
         top=-1;
     }
     void push(int elem){
-        if(top<STACK_SIZE){
+        if(top+1<STACK_SIZE){
             arr[++top]=elem;
         }
         else{
