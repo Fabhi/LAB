@@ -7,7 +7,7 @@ class Number{
     boolean isZero(){
         boolean b=true;
         if(d1== 0.0)
-            return true;
+            return b;
         return !b;
     }
     boolean isPositive(){
@@ -17,22 +17,13 @@ class Number{
         return !b;
     }
     boolean isNegative(){
-        boolean b=true;
-        if(d1<0)
-            return b;
-        return !b;
+        return d1<0;
     }
     boolean isOdd(){
-        boolean b=true;
-        if(d1%2.0!=0)
-            return b;
-        return !b;
+        return d1%2.0!=0;
     }
     boolean isEven(){
-        boolean b=true;
-        if(d1%2.0==0)
-            return b;
-        return !b;
+        return d1%2.0==0;
     }
     boolean isPrime(){
         boolean b=true;

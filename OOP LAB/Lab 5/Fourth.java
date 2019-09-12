@@ -17,10 +17,10 @@ class Complex{
 
 public class Fourth{
     public static void main(String args[]){
-        double[] d1=new double[]{22,22};
+        double[] d1={22,22};
         Complex c1=new Complex(12,d1);
         c1.printer();
-        double[] d2=new double[]{34,55};
+        double[] d2={34,55};
         Complex c2=new Complex(d2,d1);
         c2.printer();
     }
