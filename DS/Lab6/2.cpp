@@ -1,6 +1,6 @@
-//Program to evaluate a Postfix expression
+//Program to evaluate a Prefix Expression
 #include <iostream>
-#include <stdlib.h>
+#include <algorithm>
 using namespace std;
 const int STACK_SIZE=100;
 class Stack {
@@ -43,7 +43,7 @@ class Stack {
     }
 };
 
-int Operator(char ch, int a, int b){
+int Operator(char ch, int b, int a){
     switch(ch){
         case '*': return(a*b);break;
         case '+': return(a+b);break;
@@ -57,6 +57,7 @@ int Operator(char ch, int a, int b){
 }
 
 int postEval(string post){
+    reverse(post.begin(),post.end());
     Stack s;
     int l=post.length();
     for(int i=0;i<l;i++){
