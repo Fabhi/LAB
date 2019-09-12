@@ -31,7 +31,6 @@ class Account{
             return;
         }
         balance-=value;
-        return;
     }
     void display(){
         System.out.println("The balance in your account is:"+balance);
@@ -49,8 +48,8 @@ class Savings extends Account{
         Interest();
     }
     void Interest(){
-            balance+=(0.06*balance);
-        }
+        balance+=(0.06*balance);
+    }
 };
 
 class Current extends Account{
@@ -63,8 +62,8 @@ class Current extends Account{
         Service();
     }
     void Service(){
-        if(this.number<10000){
-            balance=(0.9*balance);
+        if(this.balance<10000){
+            balance*=0.9;
         }
     }
 };
@@ -77,7 +76,7 @@ public class First{
         s1.Interest();
         s1.display();
         Current c1=new Current();
-        c1.deposit(10000);
+        c1.deposit(10);
         c1.withdraw(9000);
         c1.Service();
         c1.display();
