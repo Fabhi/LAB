@@ -35,6 +35,5 @@ public class Second{
         e1.getdata();
         e1.calculate();
         System.out.println(e1.display());
-
     }
 } 

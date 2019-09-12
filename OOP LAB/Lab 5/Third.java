@@ -38,5 +38,6 @@ public class Third{
         t3= new Time();
         t3.add(t1,t2);
         t3.display();
+        scan.close();
     }
 } 

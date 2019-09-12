@@ -36,21 +36,48 @@ class Number{
     }
     boolean isPrime(){
         boolean b=true;
+        if(isPositive()&& d1%1==0){
+            for(int i=2;i<d1;i++){
+                if(d1%i==0){
+                    b=false;
+                    break;
+                }
+            }
+        }
+        else{
+            b=false;
+        }
         return b;
     }
     boolean isArmstrong(){
         boolean b=true;
+        int temp=0, rem, numb=(int)d1;
+        if(d1%1==0){
+            
+            while(numb>0){
+                rem=numb%10;
+                temp+=rem*rem*rem;
+                numb=numb/10;
+            }
+            if(temp!=(int)d1)
+                b=false;
+        }
+        else{
+            b=false;
+        }
         return b;
     }
 }
 
 public class Fifth{
     public static void main(String args[]){
-        Number n1 =new Number(-3.0);
+        Number n1 =new Number(-153.0);
         System.out.println(n1.isEven());
         System.out.println(n1.isOdd());
         System.out.println(n1.isNegative());
         System.out.println(n1.isPositive());
         System.out.println(n1.isZero());
+        System.out.println(n1.isPrime());
+        System.out.println(n1.isArmstrong());
     }
 }
