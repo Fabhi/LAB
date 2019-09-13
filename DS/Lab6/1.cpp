@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <stdio.h>
+#include <iomanip>
 using namespace std;
 #define STACK_SIZE 100
 class Stack {
@@ -40,7 +41,7 @@ class Stack {
             return true;
         }
         return false;
-    }
+    }    
 };
 
 int getPriority(char c){
@@ -63,10 +64,26 @@ int getPriority(char c){
         break;
     }
 }
+// New function defined to handle brackets
+string rev(string output){
+    string final;
+    int len=output.length();
+    for(int i=len-1;i>=0;i--){
+        if(output[i]=='('){
+            final+=')';}
+        else if(output[i]==')'){
+            final+='(';}
+        else
+        {
+            final+=output[i];
+        }
+    }
+    return final;
+}
 
 string infixtoPrefix(string infix){
-    reverse(infix.begin(),infix.end());
-    infix='('+infix+')';
+    infix=rev(infix);
+    infix="("+infix+")";
     int l=infix.size();
     string output;
     Stack s;
@@ -81,12 +98,12 @@ string infixtoPrefix(string infix){
             s.pop();
         }
         else{
-            while(getPriority(infix[i])<=getPriority(s.peek()))
+            while(getPriority(infix[i])<getPriority(s.peek()))
                 output+=s.pop();
             s.push(infix[i]);
         }
     }
-    reverse(output.begin(),output.end());
+    output=rev(output);
     return output;
 }
 
