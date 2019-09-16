@@ -45,9 +45,6 @@ void insertionSort(int array[], int size){
     }
 }
 
-
-
-
 int main(){
     int n;
     cout<<"Enter the size of the array:";
