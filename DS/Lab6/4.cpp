@@ -3,15 +3,16 @@
 #include <algorithm>
 using namespace std;
 const int STACK_SIZE=100;
+template <typename T>
 class Stack {
     private:
     int top;
-    char arr[STACK_SIZE]={'\0'};
+    T arr[STACK_SIZE];
     public:
     Stack(){
         top=-1;
     }
-    void push(int elem){
+    void push(T elem){
         if(top<STACK_SIZE){
             arr[++top]=elem;
         }
@@ -20,18 +21,14 @@ class Stack {
         }
     }
 
-    char pop(){
+    T pop(){
         if(top>=0)
             return arr[top--];
-        return -1;
     }
 
-    char peek(){
+    T peek(){
         if(top>=0)
             return arr[top];
-        else{
-            return -1;
-        }
     }
 
     bool isEmpty(){
@@ -42,35 +39,8 @@ class Stack {
     }
 };
 
-class StackS{
-    int top;
-    string arr[100];
-    public:
-    StackS(){
-        top=-1;
-    }
-    void push(string elem){
-        if(top<STACK_SIZE){
-            arr[++top]=elem;
-        }
-        else
-            cout<<"Stack Overflow!";
-    }
-
-    string pop(){
-        if(top>=0)
-            return arr[top--];
-        cout<<"Underflow!"<<endl;
-    }
-    string peek(){
-        if(top>=0)
-            return arr[top];
-        cout<<"Underflow!"<<endl;
-    }
-};
-
 string pretoInfix(string pre){
-    StackS s;
+    Stack<string> s;
     string output, final;
     reverse(pre.begin(),pre.end());
     int l=pre.length();
@@ -125,7 +95,7 @@ string infixtoPostfix(string infix){
     infix='('+infix+')';
     int l=infix.size();
     string output;
-    Stack s;
+    Stack<char> s;
     for(int i=0;i<l;i++){
         if(isalpha(infix[i])||isdigit(infix[i]))
             output+=infix[i];
