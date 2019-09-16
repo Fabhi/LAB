@@ -2,13 +2,12 @@
 #include <iostream>
 #include <algorithm>
 #include <stdio.h>
-#include <iomanip>
 using namespace std;
 #define STACK_SIZE 100
 class Stack {
     private:
     int top;
-    char arr[STACK_SIZE]={'\0'};
+    char arr[STACK_SIZE];
     public:
     Stack(){
         top=-1;

@@ -6,7 +6,7 @@ using namespace std;
 class Stack {
     private:
     int top;
-    char arr[STACK_SIZE]={'\0'};
+    char arr[STACK_SIZE];
     public:
     Stack(){
         top=-1;

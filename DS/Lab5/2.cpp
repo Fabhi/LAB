@@ -6,7 +6,7 @@ const int STACK_SIZE=100;
 class Stack {
     private:
     int top;
-    char arr[STACK_SIZE];
+    int arr[STACK_SIZE];
     public:
     Stack(){
         top=-1;

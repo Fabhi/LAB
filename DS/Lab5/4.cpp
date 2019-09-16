@@ -1,51 +1,36 @@
 #include <iostream>
 using namespace std;
-
 const int n=3;
+
 class Stack{
     private:
     int arr[n];
     int top;
     public:
     Stack(){
-        top=-1;
-    }
-
+        top=-1;}
+    
     bool isEmpty(){
-        if(top==-1){
-            return true;
-        }
-        return false;
-    }
+        return (top==-1);}
+
     bool isFull(){
-        if(top+1==n){
-            return true;
-        }
-        return false;
-    }
+        return (top+1==n);}
 
     void push(int elem){
         if(!isFull()){
-            arr[++top]=elem;
-            return;
+            arr[++top]=elem;}
         }
-        cout<<"Overflow";
-    }
 
     int pop(){
         if(!isEmpty()){
             return arr[top--];
         }
-        cout<<"underflow!"<<endl;
-        return 0;
     }
 
     int peek(){
         if(!isEmpty()){
             return arr[top];
         }
-        cout<<"underflow"<<endl;
-        return 0;
     }
 
     void display(){
@@ -87,11 +72,6 @@ class Queue{
             s1.push(s2.pop());
         }
     }
-    
-    void view(){
-        s1.display();
-        s2.display();
-    }
 };
 
 int main(){
@@ -102,5 +82,4 @@ int main(){
     q.display();
     q.dequeue();
     q.display();
-    q.view();
 }

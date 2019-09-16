@@ -3,6 +3,7 @@
 #include <algorithm>
 using namespace std;
 const int STACK_SIZE=100;
+
 class Stack{
     int top;
     string arr[100];
@@ -17,7 +18,6 @@ class Stack{
         else
             cout<<"Stack Overflow!";
     }
-
     string pop(){
         if(top>=0)
             return arr[top--];

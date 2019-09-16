@@ -46,7 +46,7 @@ string pretoInfix(string pre){
             s.push(exp);
         }
     }
-    output=s.peek();
+    output=s.pop();
     int len=output.length();
     for(int i=len-1;i>=0;i--){
         if(output[i]=='('){
