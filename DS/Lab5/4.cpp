@@ -34,7 +34,7 @@ class Stack{
     }
 
     void display(){
-        for(int i=0;i<=top;i++){
+        for(int i=top;i>=0;i--){
             cout<<arr[i]<<" ";
         }
         cout<<endl;
@@ -64,13 +64,7 @@ class Queue{
     }
 
     void display(){
-        while(!s1.isEmpty()){
-            s2.push(s1.pop());
-        }
-        s2.display();
-        while(!s2.isEmpty()){
-            s1.push(s2.pop());
-        }
+        s1.display();
     }
 };
 

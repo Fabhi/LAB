@@ -1,4 +1,4 @@
-//Program to convert a Prefix expression to an Infix expression
+//Program to convert a Prefix expression to a Postfix expression
 #include <iostream>
 #include <algorithm>
 using namespace std;
