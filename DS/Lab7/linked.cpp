@@ -72,28 +72,6 @@ class LinkedList{
         }
     }
 
-    void insert_position(int elem, int pos){
-        node *temp=new node;
-        temp->data=elem;
-        node *trav=new node;
-        trav=head;
-        int count=0;
-        bool t=true;
-        while(trav!=NULL){
-            if(count==pos){
-                temp->next=trav->next;
-                trav=temp;
-                t=false;
-                break;
-            }
-            count++;
-            trav=trav->next;
-        }
-        if(t){
-            cout<<"Invalid Position";
-        }
-    }
-
     void remove(int elem){
         if (head==NULL){
             cout<<"Empty list!"<<endl;
