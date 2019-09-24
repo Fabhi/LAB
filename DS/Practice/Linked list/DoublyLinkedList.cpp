@@ -41,6 +41,7 @@ class Doubly{
         temp->data=elem;
         temp->next=NULL;
         temp->prev=tail;
+        temp->prev->next=temp;
         tail=temp;
         if(head==NULL){
             head=temp;
@@ -61,5 +62,5 @@ int main(){
     d.display();
     d.insert_at_end(20);
     d.display();
-
+    
 }

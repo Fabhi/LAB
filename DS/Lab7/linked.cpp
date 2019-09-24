@@ -10,7 +10,6 @@ struct node{
 class LinkedList{
     private:
     node *head, *tail;
-    int count=0;
     public:
 
     LinkedList(){
@@ -143,24 +142,62 @@ class LinkedList{
     } 
 
     void sort(bool rev=false){
-        node *trav=new node;
-        node *temp=new node;
-        
-        int var;
-        while(trav!=NULL){
-            while(temp!=NULL){
-                if(temp->data>temp->next->data){
-                    cout<<"in"<<endl;
-                    var=temp->data;
-                    temp->data=temp->next->data;
-                    temp->next->data=var;
+        node *t= new node;
+        int temp;
+        node *t2= new node;
+        t=head;
+        while(t->next!=NULL){
+            t2=t->next;
+            while(t2!=NULL){
+                if(t->data>t2->data){
+                    temp=t->data;
+                    t->data=t2->data;
+                    t2->data=temp;
                 }
-            temp=temp->next;
+                t2=t2->next;
             }
-        trav=trav->next;
+            t=t->next;
         }
-        head=trav;
+    if(rev)
+        reverse();
+    }
+
+    void delete_alternate(){
+        node *temp= new node;
+        node *temp2= new node;
+        temp=head;
+        temp2=temp->next;
+        while(temp2!=NULL&&temp!=NULL){
+            temp->next=temp2->next;
+            delete temp2;
+            temp=temp->next;
+            if(temp!=NULL)
+                temp2=temp->next;
+        }
+        
+    }
+
+    void insert_sort(int elem){
+        node *temp=new node;
+        node *trav=new node;
+        temp->data=elem;
+        temp->next=NULL;
+        trav=head;
+        if(trav->data>elem){
+            temp->next=head;
+            head=temp;
+            return;
+        }
+        while(trav!=NULL){
+            if(trav->next->data>elem){
+                temp->next=trav->next;
+                trav->next=temp;
+                break;
+            }
+            trav=trav->next;
+        }
     } 
+    // JUST FIX THE OPERATION WHERE THE ELEM IS GREATER THAN THE LAST ELEMENT
 };
 
 int main(){
@@ -178,5 +215,9 @@ int main(){
     l.reverse();
     l.traverse();
     l.sort();
+    l.traverse();
+    l.delete_alternate();
+    l.traverse();
+    l.insert_sort(20);
     l.traverse();
 }
