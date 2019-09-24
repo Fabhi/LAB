@@ -166,7 +166,7 @@ class LinkedList{
             head=temp;
             return;
         }
-        while(trav!=NULL){
+        while(trav->next!=NULL){
             if(trav->next->data>elem){
                 temp->next=trav->next;
                 trav->next=temp;
@@ -174,10 +174,11 @@ class LinkedList{
             }
             trav=trav->next;
         }
+        if(trav->next==NULL){
+            trav->next=temp;
+        }
     } 
-    // JUST FIX THE OPERATION WHERE THE ELEM IS GREATER THAN THE LAST ELEMENT
 };
-
 int main(){
     LinkedList l;
     l.append(10);
@@ -196,6 +197,6 @@ int main(){
     l.traverse();
     l.delete_alternate();
     l.traverse();
-    l.insert_sort(20);
+    l.insert_sort(8);
     l.traverse();
 }
