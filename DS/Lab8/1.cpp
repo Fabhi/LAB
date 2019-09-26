@@ -1,5 +1,4 @@
-//Program to implement Doubly Linked List
-
+//Menu Driven Doubly Linked List Program
 #include <iostream>
 using namespace std;
 
@@ -37,6 +36,11 @@ class Doubly{
     void delete_end(){
         Node *temp= new Node;
         temp=tail;
+        if(temp->prev==NULL){
+            head=tail=NULL;
+            delete temp;
+            return;
+        }
         temp->prev->next=NULL;
         tail=temp->prev;
         delete temp;
@@ -68,6 +72,11 @@ class Doubly{
     void delete_pos(int loc){
         Node *trav;
         trav=head;
+        if(loc==0){
+            head=trav->next;
+            delete trav;
+            return;
+        }
         int count=0;
         while(trav!=NULL){
             if(count==loc){
@@ -160,19 +169,68 @@ class Doubly{
 };
 
 int main(){
-    Doubly d;
-    d.append(19);
-    d.display();
-    d.append(20);
-    d.display();
-    d.insert_pos(21,1);
-    d.display();
-    d.insert_after(23,20);
-    d.insert_before(24,20);
-    d.display();
-    d.reverse();
-    d.display();
-    d.delete_end();
-    d.delete_pos(1);
-    d.display();
+    Doubly D;
+                        //MENU DRIVEN PROGRAM TO IMPLEMENT THE OPERATIONS
+    int choice;
+    int loc,elem;
+    cout<<"THE FOLLOWING OPERATIONS CAN BE PERFORMED ON THE DOUBLY LINKED LIST:"<<endl;
+    cout<<"1.Insert at end"<<endl;
+    cout<<"2.Delete from end"<<endl;
+    cout<<"3.Insert at Position"<<endl;
+    cout<<"4.Delete from Position"<<endl;
+    cout<<"5.Insert after another element"<<endl;
+    cout<<"6.Insert before another element"<<endl;
+    cout<<"7.Traverse the list"<<endl;
+    cout<<"8.Reverse the list"<<endl;
+    cout<<"9.Exit"<<endl;
+    while(true){
+        cout<<">";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                D.append(elem);
+                break;
+            case 2:
+                D.delete_end();
+                break;
+            case 3:
+                cout<<"Enter the location:";
+                cin>>loc;
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                D.insert_pos(elem, loc);
+                break;
+            case 4:
+                cout<<"Enter the location:";
+                cin>>loc;
+                D.delete_pos(loc);
+                break;
+            case 5:
+                cout<<"Enter the element to insert after:";
+                cin>>loc;
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                D.insert_after(elem, loc);
+                break;
+            case 6:
+                cout<<"Enter the element to insert before:";
+                cin>>loc;
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                D.insert_before(elem, loc);
+                break;
+            case 7:
+                D.display();
+                break;
+            case 8:
+                D.reverse();
+                break;
+            case 9:
+                return 0;
+            default:
+                cout<<"Invalid Choice!"<<endl;
+        }
+    }
 }
