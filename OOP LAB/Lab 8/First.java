@@ -11,7 +11,7 @@ class Hardware implements Market{
     Hardware(){
         System.out.print("Enter the category:");
         category=scan.next();
-        System.out.print("Enter the manufacurer:");
+        System.out.print("Enter the manufacturer:");
         manufacturer=scan.next();
     }
     public void sales(){
@@ -25,9 +25,9 @@ class Software implements Market{
     String OS;
     Software(){
         System.out.print("Enter the type:");
-        Type=scan.next();
+        Type=scan.nextLine();
         System.out.print("Enter the operating system:");
-        OS=scan.next();
+        OS=scan.nextLine();
     }
     public void sales(){
         System.out.println("Total software units sold:132");

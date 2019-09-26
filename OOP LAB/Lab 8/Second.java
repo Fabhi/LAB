@@ -2,6 +2,7 @@ abstract class Calculator{
     double ar;
     abstract void area();
     void printer(){
+        area();
         System.out.println(ar);
     }
 }
@@ -31,10 +32,8 @@ class Circle extends Calculator{
 public class Second{
     public static void main(String args[]){
         Rectangle r= new Rectangle(100,40);
-        r.area();
         r.printer();
         Circle c=new Circle(100);
-        c.area();    
         c.printer();
     }
 }
