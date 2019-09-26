@@ -1,4 +1,4 @@
-//Program to implement linked list opeartion without tail
+//Menu Driven Singly Linked List Program
 #include <iostream>
 using namespace std;
 
@@ -58,7 +58,13 @@ class LinkedList{
         node *trav=new node;
         trav=head;
         bool t=true;
-        while(trav!=NULL){
+        //EDGE CASE:Element is at head
+        if(trav->data==value){
+            head=temp;
+            temp->next=trav;
+            return;
+        }
+        while(trav->next!=NULL){
             if(trav->next->data==value){
                 temp->next=trav->next;
                 trav->next=temp;
@@ -80,6 +86,7 @@ class LinkedList{
         node *trav= new node;
         trav=head;
         bool b=true;
+        // EDGE CASE:ELement at head
         if(trav->data==elem){
             head=trav->next;
             b=false;
@@ -161,6 +168,12 @@ class LinkedList{
         temp->data=elem;
         temp->next=NULL;
         trav=head;
+        //EDGE CASE:List Empty
+        if(head==NULL){
+            append(elem);
+            return;
+        }
+        // EDGE CASE:Element at head
         if(trav->data>elem){
             temp->next=head;
             head=temp;
@@ -174,29 +187,74 @@ class LinkedList{
             }
             trav=trav->next;
         }
+        // EDGE CASE: Element at Tail
         if(trav->next==NULL){
             trav->next=temp;
         }
     } 
 };
 int main(){
-    LinkedList l;
-    l.append(10);
-    l.append(100);
-    l.append(200);
-    l.append(300);
-    l.append(400);
-    l.traverse();
-    l.insert_after(8000,400);
-    l.insert_before(800,100);
-    l.traverse();
-    l.remove(100);
-    l.reverse();
-    l.traverse();
-    l.sort();
-    l.traverse();
-    l.delete_alternate();
-    l.traverse();
-    l.insert_sort(8);
-    l.traverse();
+    LinkedList L;
+    //MENU DRIVEN PROGRAM TO IMPLEMENT THE OPERATIONS
+    int choice;
+    int loc,elem;
+    L.append(100);
+    cout<<"THE FOLLOWING OPERATIONS CAN BE PERFORMED ON THE LINKED LIST:"<<endl;
+    cout<<"1.Insert before another element"<<endl;
+    cout<<"2.Insert after another element"<<endl;
+    cout<<"3.Delete an element"<<endl;
+    cout<<"4.Traverse the list"<<endl;
+    cout<<"5.Reverse the list"<<endl;
+    cout<<"6.Sort the list"<<endl;
+    cout<<"7.Delete alternate elements"<<endl;
+    cout<<"8.Insert in an order"<<endl;
+    cout<<"9.Exit"<<endl;
+    while(true){
+        cout<<">";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                cout<<"Enter the element to insert before:";
+                cin>>loc;
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                L.insert_before(elem, loc);
+                break;
+            case 2:
+                cout<<"Enter the element to insert after:";
+                cin>>loc;
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                L.insert_after(elem, loc);
+                break;
+            case 3:
+                cout<<"Enter the element to delete:";
+                cin>>elem;
+                L.remove(elem);
+                break;
+            case 4:
+                L.traverse();
+                break;
+            case 5:
+                L.reverse();
+                break;
+            case 6:
+                cout<<"0 for Ascending\n1 for Descending";
+                cin>>elem;
+                L.sort(elem);
+                break;
+            case 7:
+                L.delete_alternate();
+                break;
+            case 8:
+                cout<<"Enter the element to insert:";
+                cin>>elem;
+                L.insert_sort(elem);
+                break;
+            case 9:
+                return 0;
+            default:
+                cout<<"Invalid Choice!"<<endl;
+        }
+    }
 }
