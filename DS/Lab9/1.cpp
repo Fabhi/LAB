@@ -48,6 +48,10 @@ class DoublyCircular{
     }
 
     // TODO: Delete an element from an doubly linked circular list
+    void delete_elem(int elem){
+        Node *temp= new Node;
+        // Node 
+    }
 
     void display(){
         Node *trav= new Node;
@@ -65,7 +69,9 @@ int main(){
     c.insert(10,0);
     c.display();
     c.insert(11,1);
+    c.display();
     c.insert(12,1);
+    c.display();
     c.insert(13,4);
     c.display();
 

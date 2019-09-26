@@ -1,200 +1,202 @@
-//Program to implement singly linked list
+//Program to implement linked list opeartion without tail
 #include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;
 using namespace std;
 
 struct node{
     int data;
-    node* next; //Pointer to type node
+    node *next;
 };
 
-class list{
+class LinkedList{
     private:
-    node *head, *tail; // Every linked list has a head and a tail
+    node *head, *tail;
     public:
-    static int counter;
-    list(){
+
+    LinkedList(){
         head=NULL;
         tail=NULL;
     }
-    void insert(int elem, int loc);
-    void display();
-    int find(int elem);
-    int remove(int loc);
-};
 
-int list::counter=0;
-
-void list::insert(int elem, int loc=counter){
-    if(loc==0 & counter!=0){
-        node *temp=new node;
-        temp->data=elem;
-        temp->next=head;
-        head=temp;
-        counter++; 
-    } 
-    else if(loc<counter){
+    void append(int elem){
         node *temp= new node;
-        node *pre= new node;
-        node *cur= new node;
-        cur=head;
-        for(int i=0;i<loc;i++){
-            pre=cur;
-            cur=cur->next;
-        }
-        temp->data=elem;
-        pre->next=temp;
-        temp->next=cur;
-        counter++;
-    }
-    else if(loc==counter){
-        node *temp=new node;
         temp->data=elem;
         temp->next=NULL;
         if(head==NULL){
             head=temp;
             tail=temp;
-            temp=NULL;
+            return;
         }
-        else{
-            tail->next=temp;
-            tail=temp;
-        }
-        counter++;
+        node *trav=new node;
+        trav=tail;
+        trav->next=temp;
+        tail=temp;
     }
-    else{
-        cout<<"Index out of bound"<<endl;
-    }
-}
 
-int list::remove(int loc=counter){
-    if(loc==0){
+    void insert_after(int elem, int value){
         node *temp=new node;
+        temp->data=elem;
+        node *trav=new node;
+        trav=head;
+        bool t=true;
+        while(trav!=NULL){
+            if(trav->data==value){
+                temp->next=trav->next;
+                trav->next=temp;
+                t=false;
+                break;
+            }
+            trav=trav->next;
+        }
+        if(t){
+            cout<<"Element not found!"<<endl;
+        }
+    }
+
+    void insert_before(int elem, int value){
+        node *temp= new node;
+        temp->data=elem;
+        node *trav=new node;
+        trav=head;
+        bool t=true;
+        while(trav!=NULL){
+            if(trav->next->data==value){
+                temp->next=trav->next;
+                trav->next=temp;
+                t=false;
+                break;
+            }
+            trav=trav->next;
+        }
+        if(t){
+            cout<<"Element not found"<<endl;
+        }
+    }
+
+    void remove(int elem){
+        if (head==NULL){
+            cout<<"Empty list!"<<endl;
+            return;
+        }
+        node *trav= new node;
+        trav=head;
+        bool b=true;
+        if(trav->data==elem){
+            head=trav->next;
+            b=false;
+            return;
+        }
+        while(trav!=NULL){
+            if(trav->next->data==elem){
+                trav->next=trav->next->next;
+                b=false;
+                break;
+            }
+            trav=trav->next;
+        }
+        if(b){
+            cout<<"Element not found in the list";
+        }
+    }
+
+    void traverse(){
+        node *trav= new node;
+        trav=head;
+        while(trav!=NULL){
+            cout<<trav->data<<' ';
+            trav=trav->next;
+        }
+        cout<<endl;
+    }
+
+    void reverse(){
+        node *prev=NULL, *next=NULL, *curr=head;
+        while(curr!=NULL){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    } 
+
+    void sort(bool rev=false){
+        node *t= new node;
+        int temp;
+        node *t2= new node;
+        t=head;
+        while(t->next!=NULL){
+            t2=t->next;
+            while(t2!=NULL){
+                if(t->data>t2->data){
+                    temp=t->data;
+                    t->data=t2->data;
+                    t2->data=temp;
+                }
+                t2=t2->next;
+            }
+            t=t->next;
+        }
+    if(rev)
+        reverse();
+    }
+
+    void delete_alternate(){
+        node *temp= new node;
+        node *temp2= new node;
         temp=head;
-        head=head->next;
-        delete temp;
-        counter--;
-    }
-    else if(loc<counter){
-        node *current=new node;
-        node *previous=new node;
-        current=head;
-        for (int i=0;i<loc;i++){
-            previous=current;
-            current=current->next;
+        temp2=temp->next;
+        while(temp2!=NULL&&temp!=NULL){
+            temp->next=temp2->next;
+            delete temp2;
+            temp=temp->next;
+            if(temp!=NULL)
+                temp2=temp->next;
         }
-        previous->next=current->next;
-        counter--;
+        
     }
-    else if(loc==counter-1){
-        node *current=new node;
-        node *previous=new node;
-        current =head;
-        while(current->next!=NULL){
-            previous=current;
-            current=current->next;
+
+    void insert_sort(int elem){
+        node *temp=new node;
+        node *trav=new node;
+        temp->data=elem;
+        temp->next=NULL;
+        trav=head;
+        if(trav->data>elem){
+            temp->next=head;
+            head=temp;
+            return;
         }
-        tail=previous;
-        previous->next=NULL;
-        delete current;
-        counter--;
-    }
-    else{
-        cout<<"Wrong Index"<<endl;
-    }
-}
-
-void list::display(){
-    node *temp=new node;
-    temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<" ";
-        temp=temp->next;
-    }
-    cout<<endl;
-}
-
-int list::find(int data){
-	int index = 0;
-	node * temp = head;
-	while(temp!=NULL){
-		if(temp->data == data){
-			return index;
-		}
-		temp = temp->next;
-		index++;
-	}
-	return -1; 
-}
-
+        while(trav->next!=NULL){
+            if(trav->next->data>elem){
+                temp->next=trav->next;
+                trav->next=temp;
+                break;
+            }
+            trav=trav->next;
+        }
+        if(trav->next==NULL){
+            trav->next=temp;
+        }
+    } 
+};
 int main(){
-    list l;
-    int choice;
-    char ch='y';
-    int loc,elem,c;
-    cout<<"1.Insert before another element"<<endl;
-    cout<<"2.Insert after another element"<<endl;
-    cout<<"3.Delete an element"<<endl;
-    cout<<"4.Traverse the list"<<endl;
-    cout<<"5.Reverse the list"<<endl;
-    cout<<"6.Sort the list"<<endl;
-    cout<<"7.Delete alternate elements"<<endl;
-    cout<<"8.Insert in an order:"<<endl;
-    cout<<"9.Insert in a position:"<<endl;
-    cout<<"10.Exit"<<endl;
-    do{
-        cout<<"Enter the choice:";
-        cin>>choice;
-        switch(choice){
-            case 1:
-                cout<<"Enter the element to insert before:"<<endl;
-                cin>>c;
-                cout<<"Enter the element to insert:"<<endl;
-                cin>>elem;
-                loc= l.find(c);
-                cout<<loc;
-                if(loc==0)
-                    l.insert(elem,loc);
-                else if(loc<0)
-                    cout<<"Doesn't exist!"<<endl;
-                else
-                    l.insert(elem,loc);
-                break;
-            case 2:
-                cout<<"Enter the element to insert after:"<<endl;
-                cin>>c;
-                cout<<"Enter the element to insert:"<<endl;
-                cin>>elem;
-                loc= l.find(c);
-                cout<<loc;
-                if(loc==l.counter-1)
-                    l.insert(elem,loc);
-                else if(loc<0)
-                    cout<<"Doesn't exist!"<<endl;
-                else
-                    l.insert(elem,loc+1);
-                break;
-            case 3:
-                cout<<"Enter the element to delete:"<<endl;
-                cin>>elem;
-                loc=l.find(elem);
-                if(loc!=-1)
-                    l.remove(loc);
-                else
-                    cout<<"Element doesn't exist"<<endl;
-                break;
-            case 4:
-                l.display();
-                break;
-            case 9:
-                cout<<"Enter the element to insert:"<<endl;
-                cin>>elem;
-                l.insert(elem);
-                break;
-        }
-        cout<<"Do you want to continue?Y/N";
-        // cin>>ch;
-    }while(ch=='y');
+    LinkedList l;
+    l.append(10);
+    l.append(100);
+    l.append(200);
+    l.append(300);
+    l.append(400);
+    l.traverse();
+    l.insert_after(8000,400);
+    l.insert_before(800,100);
+    l.traverse();
+    l.remove(100);
+    l.reverse();
+    l.traverse();
+    l.sort();
+    l.traverse();
+    l.delete_alternate();
+    l.traverse();
+    l.insert_sort(8);
+    l.traverse();
 }
