@@ -42,7 +42,7 @@ class Poly{
             cin>>c;
             cout<<"Enter the exp:";
             cin>>e;
-            if(e=0 && c==0)
+            if(e==0 && c==0)
                 break;
             append(c,e);
             if(e==0)
