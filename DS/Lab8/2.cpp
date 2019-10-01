@@ -49,12 +49,23 @@ class Doubly{
 
 int main(){
     Doubly d1, d2;
-    d1.append(100);
-    d1.append(1);
-    d1.append(12);
-    d2.append(1000);
-    d2.append(201);
-    d2.append(1112);
+    cout<<"Enter list 1(-1 to break):"<<endl;
+    int c;
+    while (true){
+        cin>>c;
+        if(c==-1){
+            break;
+        }
+            d1.append(c);
+    }
+    cout<<"Enter list 2(-1 to break):"<<endl;
+    while (true){
+        cin>>c;
+        if(c==-1){
+            break;
+        }
+            d2.append(c);
+    }
     d1.display();
     d2.display();
     d1.concatenate(d2);

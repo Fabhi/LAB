@@ -120,6 +120,25 @@ class Tree{
         cout<<endl;
     }
 
+    void iterativeInorder(){
+        cout<<"Iterative Inorder Traversal >>";
+        if(root==NULL)
+            return;
+        stack <Node*> S;
+        Node *curr=root;
+        while(curr!=NULL || !S.empty()){
+            while(curr!=NULL){
+                S.push(curr);
+                curr=curr->lc;
+            }
+            curr=S.top();
+            S.pop();
+            cout<<curr->data<<' ';
+            curr=curr->rc;
+        }
+        cout<<endl;
+    }
+
     void iterativePostorder(){
         cout<<"Iterative Postorder Traversal >>";
         if(root==NULL)
@@ -159,5 +178,6 @@ int main(){
     T.postOrder();
     T.levelOrder();
     T.iterativePreorder();
+    T.iterativeInorder();
     T.iterativePostorder();
 }
