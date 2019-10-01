@@ -93,6 +93,14 @@ class Poly{
     void display(){
         node *trav= new node;
         trav=head;
+        if(trav->next==head){
+            if(trav->exp==0){
+            cout<<trav->coff<<endl;
+            return;
+            }
+            cout<<trav->coff<<"x^"<<trav->exp<<endl;
+            return;
+        }
         do{
             cout<<trav->coff<<"x^"<<trav->exp<<" + ";
             trav=trav->next;
