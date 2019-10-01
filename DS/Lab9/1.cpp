@@ -9,20 +9,25 @@ struct Node{
 class DoublyCircular{
     private:
     Node *head;
+    int counter;
     public:
     DoublyCircular(){
         head=NULL;
+        counter=0;
     }
 
     void insert(int elem, int loc){
         Node *temp= new Node;
         Node *trav= new Node;
         temp->data=elem;
+        if(loc==-1)
+            loc==counter;
         //EDGE CASE: Empty List
         if(head==NULL){
             head=temp;
             temp->next=head;
             temp->prev=head;
+            counter++;
             return;
         }
         bool found=false;
@@ -44,12 +49,13 @@ class DoublyCircular{
         temp->prev=trav->prev;
         temp->next=trav;
         trav->prev=temp;
+        counter++;
         if(loc==0){
             head=temp;
         }
     }
 
-    // TODO: Delete an element from an doubly linked circular list
+    // TODO: ERROR: Deletion doesn't work if elements are less than 2
     void delete_elem(int elem){
         Node *trav= new Node;
         bool found=false;
@@ -62,6 +68,7 @@ class DoublyCircular{
         else if(trav->next==trav->prev){
             head=NULL;
             delete trav;
+            counter--;
             return;
         }
         do{
@@ -72,6 +79,7 @@ class DoublyCircular{
                     head=trav->next;
                 }
                 delete trav;
+                counter--;
                 found=true;
                 break;
             }
@@ -106,9 +114,9 @@ int main(){
         cin>>choice;
         switch(choice){
             case 1:
-                cout<<"Enter the location:";
+                cout<<"Enter the location (Enter-1 to append):";
                 cin>>loc;
-                cout<<"Enter the element to insert:";
+                cout<<"Enter the element to insert :";
                 cin>>elem;
                 DC.insert(elem, loc);
                 break;
