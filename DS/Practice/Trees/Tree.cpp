@@ -11,7 +11,7 @@ struct Node{
 
 class Tree{
 
-    public:
+    private:
     Node *root;
 
     protected:
@@ -101,7 +101,7 @@ class Tree{
         cout<<endl;
     }
 
-    void iterativePreorder(){
+    void iterativePreorder() const{
         cout<<"Iterative Preorder Traversal >>";
         if(root==NULL) 
             return;
@@ -120,7 +120,7 @@ class Tree{
         cout<<endl;
     }
 
-    void iterativeInorder(){
+    void iterativeInorder() const{
         cout<<"Iterative Inorder Traversal >>";
         if(root==NULL)
             return;
@@ -131,15 +131,14 @@ class Tree{
                 S.push(curr);
                 curr=curr->lc;
             }
-            curr=S.top();
-            S.pop();
+            curr=S.top();S.pop();
             cout<<curr->data<<' ';
             curr=curr->rc;
         }
         cout<<endl;
     }
 
-    void iterativePostorder(){
+    void iterativePostorder() const{
         cout<<"Iterative Postorder Traversal >>";
         if(root==NULL)
             return;
@@ -152,10 +151,8 @@ class Tree{
                 S.push(curr);
                 curr=curr->lc;
             }
-
             curr=S.top();
             S.pop();
-
             if(curr->rc && S.top()==curr->rc){
                 S.pop();
                 S.push(curr);
@@ -168,6 +165,92 @@ class Tree{
         }while(!S.empty());
         cout<<endl;
     }
+
+    bool searchParent(Node *curr, int elem) const{
+        if(curr->lc){
+            if(curr->lc->data==elem){
+                cout<<"Parent is "<<curr->data<<endl;
+                return true;
+            }
+            else
+                searchParent(curr->lc,elem);
+        }
+        if(curr->rc){
+            if(curr->rc->data==elem){
+                cout<<"Parent is "<<curr->data<<endl;
+                return true;
+            }
+            else
+                searchParent(curr->rc,elem);
+        }
+        return false;
+    }
+
+    void parent(int elem) const{
+        if(root->data==elem){
+            cout<<"Root has no parent"<<endl;
+            return;
+        }
+        else{
+            if(!searchParent(root,elem))
+                cout<<"Element does not exist in the tree"<<endl;
+        }
+    }
+
+    int counter(Node *node) const{
+        if (node == NULL) 
+            return 0;  
+        int lDepth=counter(node->lc);
+        int rDepth=counter(node->rc);
+        if (lDepth > rDepth)  
+            return(lDepth + 1);  
+        else 
+            return(rDepth + 1);
+
+    }
+
+    void level() const{
+        int v=counter(root);
+        cout<<"Total Depth is:"<<v<<endl;
+    }
+
+    bool searchAncestor(Node *node, int elem) const{
+        if (node == NULL) 
+            return false; 
+        if (node->data ==elem) 
+            return true; 
+        if ( searchAncestor(node->lc, elem) || searchAncestor(node->rc,elem) ) { 
+            cout << node->data << " "; 
+            return true; 
+        }
+        return false;
+    }
+
+    void ancestors(int elem) const{
+        if(root->data==elem)
+            cout<<"Root element has no ancestor"<<endl;
+        else{
+            if(!searchAncestor(root,elem))
+                cout<<"Element does not exist in the tree"<<endl;
+        }
+        
+    }
+
+    int countleafs(Node *node){
+        static int count=0;
+        if (node == NULL){
+            count++;
+            return 0; 
+        }
+        countleafs(node->lc);
+        countleafs(node->rc);
+        return count;
+    }
+
+    void leafs(){
+        cout<<"Leafs present: "<<countleafs(root)/2<<endl;
+    }
+
 };
 
 int main(){
@@ -179,5 +262,9 @@ int main(){
     T.levelOrder();
     T.iterativePreorder();
     T.iterativeInorder();
+    T.parent(12);
+    T.level();
+    T.ancestors(12);
+    T.leafs();
     T.iterativePostorder();
 }
