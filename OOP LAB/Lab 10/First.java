@@ -52,8 +52,8 @@ public class First{
             case 4:
                 return;
             default:
-                System.out.println("Invalid Choice!");          
-            }  
+                System.out.println("Invalid Choice!");
+            }
         }
     }
 }
