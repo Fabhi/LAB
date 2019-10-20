@@ -9,55 +9,50 @@ struct node{
 
 class LinkedList{
     private:
-    node *head, *tail;
+    node *head;
     public:
 
     LinkedList(){
         head=NULL;
-        tail=NULL;
     }
 
     void append(int elem){
         node *temp= new node;
         temp->data=elem;
-        temp->next=NULL;
+        temp->next=head;
         if(head==NULL){
             head=temp;
-            tail=temp;
-            return;
         }
-        node *trav=new node;
-        trav=tail;
-        trav->next=temp;
-        tail=temp;
     }
 
     void insert_after(int elem, int value){
+        // elem= element to insert
+        // value= element after which insertion is to be done
+        // NO EDGE CASES EXIST.*
         node *temp=new node;
         temp->data=elem;
-        node *trav=new node;
-        trav=head;
-        bool t=true;
+        node *trav=head;
+        bool found=false;
         while(trav!=NULL){
             if(trav->data==value){
                 temp->next=trav->next;
                 trav->next=temp;
-                t=false;
+                found=true;
                 break;
             }
             trav=trav->next;
         }
-        if(t){
+        if(!found){
             cout<<"Element not found!"<<endl;
         }
     }
-
+/*insert_before() and remove() are implemented using look ahead technique,
+and hence edges cases are always at head because it has no element which can look ahead to head*/
     void insert_before(int elem, int value){
         node *temp= new node;
         temp->data=elem;
-        node *trav=new node;
-        trav=head;
-        bool t=true;
+        node *trav=head;
+        bool found=false;
         //EDGE CASE:Element is at head
         if(trav->data==value){
             head=temp;
@@ -68,39 +63,35 @@ class LinkedList{
             if(trav->next->data==value){
                 temp->next=trav->next;
                 trav->next=temp;
-                t=false;
+                found=true;
                 break;
             }
             trav=trav->next;
         }
-        if(t){
+        if(!found){
             cout<<"Element not found"<<endl;
         }
     }
 
     void remove(int elem){
-        if (head==NULL){
-            cout<<"Empty list!"<<endl;
-            return;
-        }
-        node *trav= new node;
-        trav=head;
-        bool b=true;
+        node *trav=head;
+        bool found=false;
+
         // EDGE CASE:ELement at head
         if(trav->data==elem){
             head=trav->next;
-            b=false;
             return;
         }
+
         while(trav!=NULL){
             if(trav->next->data==elem){
                 trav->next=trav->next->next;
-                b=false;
+                found=true;
                 break;
             }
             trav=trav->next;
         }
-        if(b){
+        if(!found){
             cout<<"Element not found in the list";
         }
     }
@@ -127,19 +118,22 @@ class LinkedList{
     } 
 
     void sort(bool rev=false){
-        node *t= new node;
+        // By selection sort
+        node *t=head, *t2, *min;
         int temp;
-        node *t2= new node;
-        t=head;
-        while(t->next!=NULL){
+        while(t){
+            min=t;
             t2=t->next;
-            while(t2!=NULL){
-                if(t->data>t2->data){
-                    temp=t->data;
-                    t->data=t2->data;
-                    t2->data=temp;
+            while(t2){
+                if(t2->data<min->data){
+                    min=t2;
                 }
                 t2=t2->next;
+            }
+            if(min!=t){
+                temp=min->data;
+                min->data=t->data;
+                t->data=temp;
             }
             t=t->next;
         }
@@ -148,15 +142,13 @@ class LinkedList{
     }
 
     void delete_alternate(){
-        node *temp= new node;
-        node *temp2= new node;
-        temp=head;
-        temp2=temp->next;
-        while(temp2!=NULL&&temp!=NULL){
+        node *temp=head;
+        node *temp2=temp->next;
+        while(temp && temp2){
             temp->next=temp2->next;
             delete temp2;
             temp=temp->next;
-            if(temp!=NULL)
+            if(temp)
                 temp2=temp->next;
         }
         
@@ -164,15 +156,16 @@ class LinkedList{
 
     void insert_sort(int elem){
         node *temp=new node;
-        node *trav=new node;
+        node *trav=head;
         temp->data=elem;
-        temp->next=NULL;
-        trav=head;
         //EDGE CASE:List Empty
         if(head==NULL){
             append(elem);
             return;
         }
+
+        // Insertion by look ahead technique
+
         // EDGE CASE:Element at head
         if(trav->data>elem){
             temp->next=head;
@@ -187,11 +180,11 @@ class LinkedList{
             }
             trav=trav->next;
         }
-        // EDGE CASE: Element at Tail
+        // EDGE CASE: Element at tail
         if(trav->next==NULL){
             trav->next=temp;
         }
-    } 
+    }
 };
 int main(){
     LinkedList L;
@@ -199,6 +192,9 @@ int main(){
     int choice;
     int loc,elem;
     L.append(100);
+    L.append(2100);
+    L.append(10);
+    L.append(1420);
     cout<<"THE FOLLOWING OPERATIONS CAN BE PERFORMED ON THE LINKED LIST:"<<endl;
     cout<<"1.Insert before another element"<<endl;
     cout<<"2.Insert after another element"<<endl;
