@@ -24,6 +24,7 @@ void traverse(Node *temp){
     cout<<temp->data<<" ";
     if(temp->next)
         traverse(temp->next);
+    return;
 }
 
 int main(){
