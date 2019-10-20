@@ -50,6 +50,82 @@ class Poly{
         }
     }
 
+    node* adder(node* p1, node *p2){
+        cout<<"inside"<<endl;
+        if(!p1)
+            return p2;
+        if(!p2)
+            return p1;
+        node *temp= new node;
+        if(p1->exp=p2->exp){
+            temp->exp=p1->exp;
+            temp->coff=p1->coff+p2->coff;
+            temp->next=adder(p1->next,p2->next);
+        }
+        else if(p1->exp>p2->exp){
+            // node *temp= new node;
+            temp->exp=p1->exp;
+            temp->coff=p1->coff;
+            temp->next=adder(p1->next,p2);
+        }
+        else{
+            // node *temp= new node;
+            temp->exp=p2->exp;
+            temp->coff=p2->coff;
+            temp->next=adder(p1,p2->next);
+        }
+        return temp;
+    }
+
+    void add3(Poly p1, Poly p2){
+        head=adder(p1.head, p2.head);
+        return;
+    }
+
+    void add2(Poly p1, Poly p2){
+        node *trav =p1.head;
+        node *trav2= p2.head;
+        node *curr=new node;
+        head =curr;
+        while(trav && trav2){
+            if(trav->exp>trav2->exp){
+                curr->exp=trav->exp;
+                curr->coff=trav->coff;
+                trav=trav->next;
+            }
+            else if(trav->exp<trav2->exp){
+                curr->exp=trav2->exp;
+                curr->coff=trav2->coff;
+                trav2=trav2->next;
+            }
+            else{
+                curr->exp=trav->exp;
+                curr->coff=trav->coff+trav2->coff;
+                trav=trav->next;
+                trav2=trav2->next;
+            }
+            curr->next=new node;
+            curr=curr->next;
+            curr->next=NULL;
+
+        }
+        while(trav->next||trav2->next){
+            if(trav->next){
+               curr->exp=trav->exp;
+               curr->coff=trav->coff;
+               trav=trav->next; 
+            }
+            if(trav2->next){
+               curr->exp=trav2->exp;
+               curr->coff=trav2->coff;
+               trav2=trav2->next; 
+            }
+            curr->next=new node;
+            curr=curr->next;
+            curr->next=NULL;
+        }
+    }
+
     void add(Poly p1, Poly p2){
         // Copy one polynomial
         node *trav= new node;
@@ -114,7 +190,7 @@ int main(){
     Poly P1,P2,P3;
     P1.input();
     P2.input();
-    P3.add(P1, P2);
+    P3.add3(P1, P2);
     cout<<"Polynomial 1:";
     P1.display();
     cout<<"Polynomial 2:";

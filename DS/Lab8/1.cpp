@@ -23,19 +23,18 @@ class Doubly{
         temp->next=NULL;
         if(head==NULL){
             // list is empty
-            head=temp;
             temp->prev=NULL;
+            head=temp;
         }
         else{
             temp->prev=tail;
-            temp->prev->next=temp;
+            tail->next=temp;
         }    
         tail=temp;
     }
 
     void delete_end(){
-        Node *temp= new Node;
-        temp=tail;
+        Node *temp= tail;
         if(temp->prev==NULL){
             head=tail=NULL;
             delete temp;
@@ -44,6 +43,7 @@ class Doubly{
         temp->prev->next=NULL;
         tail=temp->prev;
         delete temp;
+        return;
     }
 
     void insert_pos(int elem, int loc){
@@ -91,7 +91,7 @@ class Doubly{
         trav->prev->next=trav->next;
         trav->next->prev=trav->prev;
     }
-
+// Both of the functions have no edge cases until element found
     void insert_after(int elem, int val){
         Node *temp= new Node;
         Node *trav= new Node;
