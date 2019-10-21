@@ -27,10 +27,8 @@ class Tree{
         if (i < n){ 
             Node* temp = newNode(arr[i]); 
             root = temp;  
-            root->lc = insertLevelOrder(arr, 
-                    root->lc, 2 * i + 1, n); 
-            root->rc = insertLevelOrder(arr, 
-                    root->rc, 2 * i + 2, n); 
+            root->lc = insertLevelOrder(arr, root->lc, 2 * i + 1, n); 
+            root->rc = insertLevelOrder(arr, root->rc, 2 * i + 2, n); 
         } 
         return root; 
     }

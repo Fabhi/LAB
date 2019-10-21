@@ -52,17 +52,15 @@ class Tree{
     void copy(Node *dst, Node *src){
         dst->data=src->data;
         if(src->lc){
-            Node *left=new Node;
-            dst->lc=left;
-            copy(left, src->lc);
+            dst->lc=new Node;
+            copy(dst->lc, src->lc);
         }
         else{
             dst->lc=NULL;
         }
         if(src->rc){
-            Node *right=new Node;
-            dst->rc=right;
-            copy(right, src->rc);
+            dst->rc=new Node;
+            copy(dst->rc, src->rc);
         }
         else{
             dst->rc=NULL;

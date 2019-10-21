@@ -202,6 +202,7 @@ class Tree{
             return 0;  
         int lDepth=counter(node->lc);
         int rDepth=counter(node->rc);
+        // Return larger of both plus one for root
         if (lDepth > rDepth)  
             return(lDepth + 1);  
         else 
@@ -247,8 +248,18 @@ class Tree{
         return count;
     }
 
+    int leafcount(Node *node){
+        if(node==NULL)
+            return 0;
+        else if(!node->lc && !node->rc)
+            return 1;
+        else
+            return leafcount(node->lc)+leafcount(node->rc);
+    }
+
     void leafs(){
         cout<<"Leafs present: "<<countleafs(root)/2<<endl;
+        cout<<"Leafs present by leafcount: "<<leafcount(root)<<endl;
     }
 
 };
