@@ -1,9 +1,5 @@
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.EOFException;
+import java.io.*;
 public class First{
     public static void main(String args[]) throws IOException, EOFException{
         Scanner scan= new Scanner(System.in);
@@ -25,34 +21,34 @@ public class First{
             scan.nextLine();
             switch(choice){
                 case 1:
-                FileOutputStream bor= new FileOutputStream(f1,true);
-                System.out.println("Enter a line of string:");
-                String s1=scan.nextLine();
-                byte b[]=s1.getBytes();
-                bor.write(b);
-                bor.write('\n');
-                bor.flush();
-                System.out.println("Successfully written!");
-                break;
-            case 2:
-                FileInputStream bir= new FileInputStream(f1);
-                System.out.println("READING FILE:");
-                while((ch=bir.read())!=-1){
-                    System.out.print((char)ch);
-                }
-                break;
-            case 3:
-                FileInputStream bir2= new FileInputStream(f1);
-                FileOutputStream bor2= new FileOutputStream(f2);
-                while((ch=bir2.read())!=-1){
-                    bor2.write(ch);
-                }
-                System.out.println("Files Copied");
-                break;
-            case 4:
-                return;
-            default:
-                System.out.println("Invalid Choice!");
+                    FileOutputStream bor= new FileOutputStream(f1,true);
+                    System.out.println("Enter a line of string:");
+                    String s1=scan.nextLine();
+                    byte b[]=s1.getBytes();
+                    bor.write(b);
+                    bor.write('\n');
+                    bor.flush();
+                    System.out.println("Successfully written!");
+                    break;
+                case 2:
+                    FileInputStream bir= new FileInputStream(f1);
+                    System.out.println("READING FILE:");
+                    while((ch=bir.read())!=-1){
+                        System.out.print((char)ch);
+                    }
+                    break;
+                case 3:
+                    FileInputStream bir2= new FileInputStream(f1);
+                    FileOutputStream bor2= new FileOutputStream(f2);
+                    while((ch=bir2.read())!=-1){
+                        bor2.write(ch);
+                    }
+                    System.out.println("Files Copied");
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid Choice!");
             }
         }
     }

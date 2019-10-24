@@ -11,6 +11,8 @@ public class Eval{
         System.out.println(s.replace('e','a'));
         System.out.println(s.substring(2,6));
         System.out.println(s.replace('g','G').replace('f', 'F'));
+        System.out.println(s.replace('g','G'));
+        System.out.println(s.replace('f', 'F'));
         StringBuffer sb= new StringBuffer(s);
         sb.setCharAt(0,(char)(sb.charAt(0)-32));
         for(int i=0;i<sb.length();i++){
@@ -22,7 +24,8 @@ public class Eval{
         }
         System.out.println(sb);
 
-        // String s2= "s1+"+(123+456);
+        // String s2= "s3"+(123+456);
+        // String s1= "s3"+123+456;
         // String s1= "Abh";
         // System.out.println(s1=s2);
     }
