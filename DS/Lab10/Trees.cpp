@@ -29,6 +29,30 @@ class Tree{
         temp->rc=createTree();
     }
 
+    void post(Node *node) const{
+        if (node == NULL) 
+            return;  
+        post(node->lc);
+        post(node->rc);
+        cout<<node->data <<" "; 
+    }
+
+    void pre(Node *node) const{
+        if(node == NULL)
+            return;
+        cout<<node->data <<" ";
+        pre(node->lc);
+        pre(node->rc);
+    }
+
+    void in(Node *node) const{
+        if(node == NULL)
+            return;
+        in(node->lc);
+        cout<<node->data <<" ";
+        in(node->rc);
+    }
+
     public:
     Tree(){
         root=NULL;
@@ -38,6 +62,43 @@ class Tree{
         cout<<"Use -1 to break"<<endl;
         cout<<"Enter root"<<endl;
         root=createTree();
+    }
+
+    void postOrder() const{
+        cout<<"Postorder Traversal >>";
+        post(root);
+        cout<<endl;
+    }
+
+    void preOrder() const{
+        cout<<"Preorder Traversal >>";
+        pre(root);
+        cout<<endl;
+    }
+
+    void inOrder() const{
+        cout<<"Inorder Traversal >>";
+        in(root);
+        cout<<endl;
+    }
+
+    void levelOrder() const{
+        cout<<"Levelorder Traversal >>";
+        queue <Node*> q;
+        q.push(root);
+        Node *curr;
+        while(!q.empty()){
+            curr=q.front();
+            q.pop();
+            cout<<curr->data<<' ';
+            if(curr->lc!=NULL){
+                q.push(curr->lc);
+            }
+            if(curr->rc!=NULL){
+                q.push(curr->rc);
+            }
+        }
+        cout<<endl;
     }
 
     void iterativePreorder() const{
@@ -173,7 +234,18 @@ class Tree{
             if(!searchAncestor(root,elem))
                 cout<<"Element does not exist in the tree"<<endl;
         }
-        cout<<endl;
+        
+    }
+
+    int countleafs(Node *node){
+        static int count=0;
+        if (node == NULL){
+            count++;
+            return 0; 
+        }
+        countleafs(node->lc);
+        countleafs(node->rc);
+        return count;
     }
 
     int leafcount(Node *node){
@@ -186,15 +258,17 @@ class Tree{
     }
 
     void leafs(){
-        cout<<"Leafs present:"<<leafcount(root)<<endl;
+        cout<<"Leafs present: "<<countleafs(root)/2<<endl;
+        cout<<"Leafs present by leafcount: "<<leafcount(root)<<endl;
     }
+
 };
 
 int main(){
     Tree T;
     T.create();
     T.iterativeInorder();
-    // T.iterativePostorder();
+    T.iterativePostorder();
     T.iterativePreorder();
     int n;
     cout<<"Find parent of?";
@@ -202,7 +276,6 @@ int main(){
     T.parent(n);
     T.level();
     cout<<"Find ancestor of?";
-    cin>>n;
     T.ancestors(n);
     T.leafs();
 }

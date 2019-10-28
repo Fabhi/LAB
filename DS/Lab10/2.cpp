@@ -29,7 +29,6 @@ class Tree{
     }
 
     void Inorder(Node *node){
-        // LEFT,ROOT, RIGHT
         if (node==NULL){
             return;
         }

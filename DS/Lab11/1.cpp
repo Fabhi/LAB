@@ -41,7 +41,7 @@ void inorder(Node *root)
         return;
     inorder(root->left); 
     cout<<root->data<<" "; 
-    inorder(root->right); 
+    inorder(root->right);
 }
 
 Node* deleteNode(Node* node, int elem){
@@ -78,11 +78,36 @@ Node* deleteNode(Node* node, int elem){
 int main(){
     Node *root=NULL;
     root=insert(root,30);
-    insert(root,300);
-    insert(root,10);
-    insert(root,200);
-    insert(root,800);
-    insert(root,400);
-    inorder(root);
-    search(root,120)?cout<<"Yes":cout<<"NO";
+    int n, choice;
+    cout<<"1. Insert an element "<<endl;
+    cout<<"2. Delete an element "<<endl;
+    cout<<"3. Search an element "<<endl;
+    cout<<"4. Print the array "<<endl;
+    while(true){
+        cout<<">";
+        cin>>choice;
+        switch(choice){
+            case 1:
+                cout<<"Enter element:";
+                cin>>n;
+                insert(root,n);
+                break;
+            case 2:
+                cout<<"Enter element:";
+                cin>>n;
+                deleteNode(root,n);
+                break;
+            case 3:     
+                cout<<"Enter element:";
+                cin>>n;
+                search(root,n)?cout<<"Yes"<<endl:cout<<"NO"<<endl;
+                break;
+            case 4:
+                inorder(root);
+                cout<<endl; 
+                break;
+            default:
+                cout<<"Invalid Choice!"<<endl;
+        }
+    }
 }
