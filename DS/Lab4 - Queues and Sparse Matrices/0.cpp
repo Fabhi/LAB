@@ -12,34 +12,25 @@ class Queue{
     }
 
     bool isEmpty(){
-        if(front==-1 && rear==-1){
-            return true;
-        }
-        return false;
+        return front==-1 && rear==-1;
     }
     
     bool isFull(){
-        if(rear==SIZE-1){
-            return true;
-        }
-        return false;
+        return rear==SIZE-1;
     }
     
-    int enq(int elem){
-        if(isEmpty()){
-            arr[rear++]=elem;
+    void enq(int elem){
+        if(isFull())
+            return;
+        if(isEmpty())
             front++;
-            return 0;
-        }
-        else if(isFull()){
-            return -1;
-        }
-        arr[rear++]=elem;
+        arr[++rear]=elem;
 
     }
     int deq(){
         if(isEmpty()){
-            cout<<"Empty Queue";    
+            cout<<"Empty Queue";
+            return -1;    
         }
         else if(front==rear){
             int temp=arr[rear];
@@ -52,7 +43,12 @@ class Queue{
     }
     
     void display(){
-        for(int i=front;i<rear;i++){
+        if(isEmpty()){
+            cout<<endl;
+            return;
+        }
+
+        for(int i=front;i<=rear;i++){
             cout<<arr[i]<<" ";
         }
         cout<<endl;
@@ -61,14 +57,21 @@ class Queue{
 
 int main(){
     Queue Q;
-        Q.enq(1);
-        Q.deq();
-        Q.enq(2);
-        Q.enq(3);
-        Q.enq(4);
-        Q.deq();
-        Q.deq();
-        Q.enq(5);
-        Q.display();
-
+    Q.display();
+    Q.enq(1);
+    Q.display();
+    Q.deq();
+    Q.display();
+    Q.enq(2);
+    Q.display();
+    Q.enq(3);
+    Q.display();
+    Q.enq(4);
+    Q.display();
+    Q.deq();
+    Q.display();
+    Q.deq();
+    Q.display();
+    Q.enq(5);
+    Q.display();
 }

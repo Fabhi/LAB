@@ -1,3 +1,4 @@
+// Program to check if the parenthesis are balanced
 #include <iostream>
 #include <string.h>
 #define STACK_SIZE 100
@@ -66,5 +67,4 @@ int main(){
     }
     cout<<"Paranthesis are not balanced."<<endl;
     return 0;
-    
 }

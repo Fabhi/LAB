@@ -1,13 +1,13 @@
-//Program to convert decimal number to any base
+// Program to check if a string is a palindrome using Stack
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
-#define STACK_SIZE 100
 using namespace std;
+#define STACK_SIZE 2
 class Stack {
     private:
     int top;
-    int arr[STACK_SIZE];
+    char arr[STACK_SIZE];
     public:
     Stack(){
         top=-1;
@@ -22,9 +22,9 @@ class Stack {
     }
 
     int pop(){
-        if(top>=0) 
+        if(top>=0)
             return arr[top--];
-        cout<<"Underflow"<<endl;
+        cout<<"Stack Underflow!"<<endl;
         return -1;
     }
 
@@ -39,32 +39,26 @@ class Stack {
 
     void display(){
         for(int i=top;i>=0;i--){
-            if(arr[i]<=10)
-                cout<<arr[i];
-            else
-            {
-                char c=static_cast<char>(arr[i]+55);
-                cout<<c;
-            }
-            
+            cout<<arr[i]<<endl;
         }
     }
 };
 
 int main(){
-    Stack New;
-    cout<<"Enter number:";
-    int numb;
-    cin>>numb;
-    int base,div;
-    cout<<"Enter the base:";
-    cin>>base;
-    do{
-        div=numb%base;
-        numb=numb/base;
-        New.push(div);
-    }   while(numb>=base);
-    New.push(numb);
-    New.display();
-}
+    Stack stk1;
+    char a[50];
+    cout<<"Enter String:";
+    gets(a);
+    int n=strlen(a);
+    for(int i=0;i<n;i++){
+        stk1.push(a[i]);}
+    int i;
+    for(i=0;(i<n)&&(stk1.pop()==a[i]);++i){}
+    if(i==n){
+        cout<<"String is a palindrome.";
+    }
+    else{
+        cout<<"String is not a palindrome.";
+    }
 
+}
