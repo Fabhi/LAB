@@ -12,7 +12,7 @@ class Stack {
         top=-1;
     }
     void push(int elem){
-        if(top<STACK_SIZE){
+        if(top!=STACK_SIZE-1){
             arr[++top]=elem;
         }
         else{

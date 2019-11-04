@@ -32,7 +32,7 @@ class Stack{
 
 string pretoInfix(string pre){
     Stack s;
-    string output, final;
+    string output;
     reverse(pre.begin(),pre.end());
     int l=pre.length();
     for(int i=0;i<l;i++){
@@ -42,23 +42,13 @@ string pretoInfix(string pre){
         else{
             string a=s.pop();
             string b=s.pop();
-            string exp='('+b+pre[i]+a+')';
+            string exp=')'+b+pre[i]+a+'(';
             s.push(exp);
         }
     }
     output=s.pop();
-    int len=output.length();
-    for(int i=len-1;i>=0;i--){
-        if(output[i]=='('){
-            final+=')';}
-        else if(output[i]==')'){
-            final+='(';}
-        else
-        {
-            final+=output[i];
-        }
-    }
-    return final;
+    reverse(output.begin(),output.end());
+    return output;
 }
 
 int main(){

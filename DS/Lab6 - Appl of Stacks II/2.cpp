@@ -1,6 +1,7 @@
 //Program to evaluate a Prefix Expression
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 const int STACK_SIZE=100;
 class Stack {
@@ -49,8 +50,8 @@ int Operator(char ch, int b, int a){
         case '+': return(a+b);break;
         case '-': return(a-b);break;
         case '/': return(a/b);break;
-        case '$': return(a^b);break;
-        case '^': return(a^b);break;
+        case '$': return(pow(a,b));break;
+        case '^': return(pow(a,b));break;
         default:
         return 0;
     }

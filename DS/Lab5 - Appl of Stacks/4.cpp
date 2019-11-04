@@ -1,3 +1,4 @@
+// Program to implement queue using Stack
 #include <iostream>
 using namespace std;
 const int n=3;
