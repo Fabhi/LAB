@@ -3,7 +3,7 @@
 #include <stack>
 using namespace std;
 struct Node{
-    int data;
+    char data;
     Node *left, *right;
     Node(int c){
         data=c;
@@ -38,7 +38,7 @@ void infix(Node *root){
     if(root==NULL)
         return;
     infix(root->left);
-    cout<<root->data<<" ";
+    cout<<root->data;
     infix(root->right);
 }
 int operate(int a, int b, char c){
@@ -65,7 +65,7 @@ int evaluate(Node *root){
         int left=evaluate(root->left)-'0';
         int right=evaluate(root->right)-'0';
         int val= operate(left,right,root->data);
-        root->data=val;
+        // root->data=val;
         return val;
     }
 }
@@ -75,5 +75,5 @@ int main(){
     cin>>s;
     Node *root=createTree(s);
     infix(root);
-    cout<<evaluate(root);
+    cout<<endl<<evaluate(root);
 }

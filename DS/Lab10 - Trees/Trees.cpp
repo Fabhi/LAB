@@ -91,10 +91,10 @@ class Tree{
             curr=q.front();
             q.pop();
             cout<<curr->data<<' ';
-            if(curr->lc!=NULL){
+            if(curr->lc){
                 q.push(curr->lc);
             }
-            if(curr->rc!=NULL){
+            if(curr->rc){
                 q.push(curr->rc);
             }
         }
