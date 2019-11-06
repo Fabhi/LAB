@@ -23,7 +23,7 @@ public class Eval{
             }
         }
         System.out.println(sb);
-
+        scan.close();
         // String s2= "s3"+(123+456);
         // String s1= "s3"+123+456;
         // String s1= "Abh";

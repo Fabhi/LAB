@@ -67,5 +67,6 @@ public class Diagonal{
         }
         int sum=t1.sum + t2.sum + t3.sum;
         System.out.println(sum);
+        scan.close();
     }
 }

@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -61,6 +62,7 @@ class Author implements Serializable{
         scan.nextLine();
         System.out.println("City");
         city=scan.nextLine();
+        scan.close();
     }
     public String toString(){
         return name+" "+dob+" "+authorId+" "+city;
@@ -70,6 +72,7 @@ class Author implements Serializable{
 
 
 class InvalidChar extends Exception{
+    private static final long serialVersionUID=2L;
     public String toString(){
         return "INVALID CHARACTER ENTERED!";
     }
@@ -102,6 +105,7 @@ class Book implements Serializable{
         scan.nextLine();
         System.out.println("Technical? Y/N");
         tech=scan.nextLine().charAt(0);
+        scan.close();
     }
 
     static boolean Check(String name){
