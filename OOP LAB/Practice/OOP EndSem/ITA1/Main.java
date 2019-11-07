@@ -86,10 +86,7 @@ class SecondaryThread extends Thread{
     }
     static String replace(String s){
         String output;
-        byte a[]= new byte[s.length()];
-        for(int i=0;i<s.length();i++){
-            a[i]=(byte) s.charAt(i);
-        }
+        char[] a= s.toCharArray();
         Arrays.sort(a);
         output=new String(a);
         return output;
@@ -142,8 +139,8 @@ public class Main{
         printer(str2);
 
         EvenThread t1= new EvenThread(str2);
-        SecondaryThread t2= new SecondaryThread(str2);
         t1.join();
+        SecondaryThread t2= new SecondaryThread(str2);
         t2.join();
         printer(str2);
     }
