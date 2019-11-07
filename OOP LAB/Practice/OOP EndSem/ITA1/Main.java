@@ -54,6 +54,7 @@ class EvenThread extends Thread{
                 oos.writeObject(n[i]);
             }
             printer(n);
+            oos.close();
         }
         catch(Exception e){
             System.out.println(e);
@@ -104,6 +105,7 @@ class SecondaryThread extends Thread{
                 found=true;
             }
         }
+        scan.close();
         try{
             if(!found)
                 throw new KeywordNotFound();
