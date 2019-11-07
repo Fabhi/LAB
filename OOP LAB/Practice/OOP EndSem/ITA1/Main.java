@@ -12,8 +12,6 @@
 import java.io.*;
 import java.util.*;
 
-import org.w3c.dom.events.EventException;
-
 class DuplicateWordFound extends Exception{
     String word;
     DuplicateWordFound(String s){
