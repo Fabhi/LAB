@@ -2,15 +2,13 @@ package ObjectComp;
 
 
 // Sorting objects using toString method
-import java.io.*;
-import java.util.*;
 class Student{
     int ID;
     String name;
     Student(String n, int i){
-        Scanner scan= new Scanner(System.in);
         name=n;
         ID=i;
+
     }
 
     public String toString(){
