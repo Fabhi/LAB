@@ -4,7 +4,11 @@ import java.awt.event.*;
 
 public class Comparison{
     public static void main(String args[]){
-        container cont= new container();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new container();
+            }
+        });
     }
 }
 
@@ -17,10 +21,7 @@ class container extends JFrame implements ActionListener{
         t1=new JTextField(10);
         t2=new JTextField(10);
         t3=new JTextField(10);
-        add(t1);
-        add(t2);
-        add(t3);
-
+        
         // BUTTONS
         b1= new JButton("Largest");
         b2= new JButton("Smallest");
@@ -28,13 +29,16 @@ class container extends JFrame implements ActionListener{
         b2.setSize(10, 10);
         b1.addActionListener(this);
         b2.addActionListener(this);
-        add(b1);
-        add(b2);
-
+        
         // LABEL
         r= new JLabel("Enter and Press");
+        
+        add(t1);
+        add(t2);
+        add(t3);
+        add(b1);
+        add(b2);
         add(r);
-
         setLayout(new FlowLayout());
         setVisible(true);
         setSize(150,200);

@@ -12,30 +12,33 @@ class Sparse{
     void set(int r, int c, int v){
         row=r;column=c;value=v;
     }
-    void nTranspose(Sparse a[], Sparse b[]){
-        int r=a[0].row;
-        int c=a[0].column;
-        int v=a[0].value;
-        b[0].row=c;
-        b[0].column=r;
-        b[0].value=v;
-        int k=1;
-        for(int i=0;i<c;i++){
-            for(int j=1;j<=v;j++){
-                if(a[j].column==i){
-                    b[k].row=a[j].column;
-                    b[k].column=a[j].row;
-                    b[k++].value=a[j].value;
-                }
-            }
-        }
-
-    }
     void display(){
         cout<<row<<' '<<column<<' '<<value<<endl;
     }
 
 };
+
+Sparse* nTranspose(Sparse a[]){
+    Sparse *b = new Sparse[a[0].value+1];
+    int r=a[0].row;
+    int c=a[0].column;
+    int v=a[0].value;
+    b[0].row=c;
+    b[0].column=r;
+    b[0].value=v;
+    int k=1;
+    for(int i=0;i<c;i++){
+        for(int j=1;j<=v;j++){
+            if(a[j].column==i){
+                b[k].row=a[j].column;
+                b[k].column=a[j].row;
+                b[k++].value=a[j].value;
+            }
+        }
+    }
+    return b;
+
+}
 
 
 int main(){
@@ -68,9 +71,8 @@ int main(){
         s[k].display();
     }
 
-    Sparse b[count+1], temp;
+    Sparse *b=nTranspose(s);
     cout<<"Matrix after Transposing"<<endl;
-    temp.nTranspose(s,b);
     for(int k=0;k<=count;k++){
         b[k].display();
     }

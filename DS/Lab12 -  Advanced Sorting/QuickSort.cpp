@@ -2,12 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void swap(int *a, int *b){
-    int temp=*a;
-    *a=*b;
-    *b=temp;
-}
-
 void print(int arr[],int n){
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
@@ -38,7 +32,7 @@ int partition(int arr[],int beg, int end){
             if(loc==left)
                 sorted=true;
             else if(arr[loc]<arr[left]){
-                swap(&arr[loc],&arr[left]);
+                swap(arr[loc],arr[left]);
                 loc = left;
             }
         }
