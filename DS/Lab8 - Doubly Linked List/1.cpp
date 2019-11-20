@@ -153,18 +153,12 @@ class Doubly{
     }
 
     void reverse(){
-        Node *temp;
-        Node *trav= new Node;
-        trav=head;
+        Node *trav=head;
         while(trav!=NULL){
-            temp=trav->next;
-            trav->next=trav->prev;
-            trav->prev=temp;
+            swap(trav->next,trav->prev);
             trav=trav->prev;
         }
-        temp=head;
-        head=tail;
-        tail=temp;
+        swap(head,tail);
     }
 };
 

@@ -13,27 +13,21 @@ class Tree{
     public:
 
     Tree(int arr[],int n){
-        root= insertLevelOrder(arr,root,0,n);
+        root= insertLevelOrder(arr,0,n);
     }
 
-    Node* newNode(int elem){
-        Node *node= new Node();
-        node->data=elem;
-        node->lc=node->rc=NULL;
-        return node;
+
+    Node* insertLevelOrder(int arr[], int i, int n){
+        if(i>=n)
+            return NULL; 
+        Node *temp = new Node();
+        temp->data=arr[i];
+        temp->lc = insertLevelOrder(arr, 2*i+1, n);
+        temp->rc = insertLevelOrder(arr, 2*i+2, n);
+        return temp;
     }
 
-    Node* insertLevelOrder(int arr[],Node* root, int i, int n){
-        if (i < n){ 
-            Node* temp = newNode(arr[i]); 
-            root = temp;  
-            root->lc = insertLevelOrder(arr, root->lc, 2 * i + 1, n); 
-            root->rc = insertLevelOrder(arr, root->rc, 2 * i + 2, n); 
-        } 
-        return root; 
-    }
-
-    int Mirror(Node* a, Node* b) {
+    int Mirror(Node* a, Node* b){
         if (!a && !b) 
             return true;  
         if (!a || !b) 

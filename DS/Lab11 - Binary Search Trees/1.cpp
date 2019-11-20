@@ -12,31 +12,26 @@ struct Node{
 };
 
 Node* insert(Node *node,int elem){
-    if(node==NULL){
+    if(node==NULL)
         return new Node(elem);       
-    }
-    if(elem>node->data){
+    if(elem>node->data)
         node->right=insert(node->right,elem);
-    }
-    else{
+    else
         node->left=insert(node->left,elem);
-    }
     return node;
 }
+
 
 Node* search(Node *node, int elem){
     if(node==NULL||node->data==elem)
         return node;
-    else if(node->data<elem){
+    else if(node->data<elem)
         return search(node->right, elem);
-    }
-    else{
+    else
         return search(node->left,elem);
-    }
 }
 
-void inorder(Node *root) 
-{ 
+void inorder(Node *root){ 
     if(!root) 
         return;
     inorder(root->left); 

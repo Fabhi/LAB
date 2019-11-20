@@ -49,28 +49,20 @@ class Tree{
     }
 
     // This function employs operator overriding to copy a tree
-    void copy(Node *dst, Node *src){
-        dst->data=src->data;
-        if(src->lc){
-            dst->lc=new Node;
-            copy(dst->lc, src->lc);
-        }
-        else{
-            dst->lc=NULL;
-        }
-        if(src->rc){
-            dst->rc=new Node;
-            copy(dst->rc, src->rc);
-        }
-        else{
-            dst->rc=NULL;
-        }
-        return;
+    Node* copy(Node* src){
+        if(!src)
+            return NULL;
+        Node *dest= new Node;
+        dest->data=src->data;
+        dest->lc=copy(src->lc);
+        dest->rc=copy(src->rc);
+        return dest;
+
     }
 
     void operator=(Tree t2){
         root=new Node;
-        copy(root,t2.root);
+        root=copy(t2.root);
     }
 };
 

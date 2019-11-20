@@ -57,9 +57,8 @@ class DoublyCircular{
 
     // TODO: ERROR: Deletion doesn't work if elements are less than 2
     void delete_elem(int elem){
-        Node *trav= new Node;
+        Node *trav= head;
         bool found=false;
-        trav=head;
         if(trav==NULL){
             cout<<"List empty!";
             return;
@@ -73,8 +72,10 @@ class DoublyCircular{
         }
         do{
             if(trav->data==elem){
-                trav->prev->next=trav->next;
-                trav->next->prev=trav->prev;
+                if(trav->prev)
+                    trav->prev->next=trav->next;
+                if(trav->next)
+                    trav->next->prev=trav->prev;
                 if(trav==head){
                     head=trav->next;
                 }
@@ -100,6 +101,7 @@ class DoublyCircular{
         cout<<endl;
     }
 };
+
 
 int main(){
     DoublyCircular DC;

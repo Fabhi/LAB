@@ -157,9 +157,9 @@ class Tree{
     bool searchAncestor(Node *node, int elem) const{
         if (node == NULL) 
             return false; 
-        if (node->data ==elem) 
+        else if (node->data ==elem) 
             return true; 
-        if ( searchAncestor(node->lc, elem) || searchAncestor(node->rc,elem) ) { 
+        else if ( searchAncestor(node->lc, elem) || searchAncestor(node->rc,elem) ) { 
             cout << node->data << " "; 
             return true; 
         }
