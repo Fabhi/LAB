@@ -28,33 +28,34 @@ void traverse(Node *temp){
     return;
 }
 
-void merge(Node* head3, Node *head, Node *head2){
-    if(!head){
-        head3=head2;
-        return;
-    }
-    else if(!head2){
-        head3=head;
-        return;
+Node* merger(Node *head1, Node *head2){
+    Node* head;
+    if(!head1 && !head2)
+        return NULL;
+    else if(!head1)
+        return head2;
+    else if(!head2)
+        return head1;
+    if(head1->data<head2->data){
+        head=head1;
+        head->next=merger(head1->next,head2);
     }
     else{
-        if(head->data<head2->data){
-            head3=head;
-            merge(head3->next, head->next,head2);
-        }
-        else{
-            head3=head2;
-            merge(head3->next, head,head2->next);
-        }
+        head=head2;
+        head->next=merger(head1,head2->next);
     }
+    return head;
 }
 
 int main(){
-    Node *head = createList();
+    Node *head1 = createList();
+    traverse(head1);
+    cout<<endl;
+
     Node *head2 = createList();
-    Node *head3=new Node;
-    merge(head3, head, head2);
-    traverse(head);
     traverse(head2);
+    cout<<endl;
+
+    Node *head3 = merger(head1,head2);
     traverse(head3);
 }

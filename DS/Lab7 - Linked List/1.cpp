@@ -20,9 +20,7 @@ class LinkedList{
         node *temp= new node;
         temp->data=elem;
         temp->next=head;
-        if(head==NULL){
-            head=temp;
-        }
+        head=temp;
     }
 
     void insert_after(int elem, int value){
@@ -83,7 +81,7 @@ and hence edges cases are always at head because it has no element which can loo
             return;
         }
 
-        while(trav!=NULL){
+        while(trav->next!=NULL){
             if(trav->next->data==elem){
                 trav->next=trav->next->next;
                 found=true;
@@ -91,8 +89,15 @@ and hence edges cases are always at head because it has no element which can loo
             }
             trav=trav->next;
         }
+        // Element at Tail
+        if(trav->next==NULL){
+            delete trav->next;
+            trav->next=NULL;
+            found=true;
+        }
+            
         if(!found){
-            cout<<"Element not found in the list";
+            cout<<"Element not found in the list"<<endl;
         }
     }
 
@@ -125,16 +130,12 @@ and hence edges cases are always at head because it has no element which can loo
             min=t;
             t2=t->next;
             while(t2){
-                if(t2->data<min->data){
+                if(t2->data<min->data)
                     min=t2;
-                }
                 t2=t2->next;
             }
-            if(min!=t){
-                temp=min->data;
-                min->data=t->data;
-                t->data=temp;
-            }
+            if(min!=t)
+                swap(min->data,t->data);
             t=t->next;
         }
     if(rev)
@@ -183,6 +184,7 @@ and hence edges cases are always at head because it has no element which can loo
         // EDGE CASE: Element at tail
         if(trav->next==NULL){
             trav->next=temp;
+            temp->next=NULL;
         }
     }
 };
