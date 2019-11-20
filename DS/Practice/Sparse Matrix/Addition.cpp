@@ -79,13 +79,13 @@ Sparse* create(){
     int m,n;
     cout<<"Enter the size for matrix:"<<endl;
     cin>>m>>n;
-    int arr1[m][n];
+    int arr[m][n];
     int nonzeros=0;
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             cout<<"Enter ["<<i<<"]["<<j<<"]:";
-            cin>>arr1[i][j];
-            if(arr1[i][j]!=0)
+            cin>>arr[i][j];
+            if(arr[i][j]!=0)
                 nonzeros++;
         }
     }
@@ -94,8 +94,8 @@ Sparse* create(){
     int k=1;
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-            if(arr1[i][j]!=0)
-                s[k++].set(i,j,arr1[i][j]);
+            if(arr[i][j]!=0)
+                s[k++].set(i,j,arr[i][j]);
         }
     }
     return s;

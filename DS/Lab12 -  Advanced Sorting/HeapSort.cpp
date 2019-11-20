@@ -35,8 +35,9 @@ void HeapSort(int arr[],int n){
 
 
 int main(){
-    int arr[]={7,10,36,1,45};
-    print(arr,5);
-    HeapSort(arr,5);
-    print(arr,5);
+    int arr[]={7,55,10,36,1,45,};
+    int n=6;
+    print(arr,n);
+    HeapSort(arr,n);
+    print(arr,n);
 }

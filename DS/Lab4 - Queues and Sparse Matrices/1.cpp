@@ -1,7 +1,7 @@
 //Program to implement Circular Queues using Arrays
 #include <iostream>
 using namespace std;
-const int SIZE=5;
+const int SIZE=3;
 
 class CQueue{
     private:
@@ -15,44 +15,36 @@ class CQueue{
     }
 
     bool isEmpty(){
-        if (front==-1 && rear==-1){
-            return true;
-        }
-        return false;
+        return (front==-1 && rear==-1);
     }
 
     bool isFull(){
-        if ((front==0 && rear==SIZE-1)||(front==(rear+1))){
-            return true;
-        }
-        return false;
+        return (rear+1)%SIZE==front;
     }
 
-    int enq(int elem){
+    void enq(int elem){
         if(isFull()){
             cout<<"Queue Full"<<endl;
-            return -1;}  
-        else{
-            if(isEmpty())
-                front=0;
-            rear=(rear+1)%SIZE;
-            arr[rear]=elem;
-            return 1;
-        }
+            return;
+        }  
+        if(isEmpty())
+            front++;
+        rear=(rear+1)%SIZE;
+        arr[rear]=elem;
     }
 
     int deq(){
         if(isEmpty()){
             cout<<"Empty queue"<<endl;
-            return -1;}
-        else{
-            int elem=arr[front];
-            if (front==rear)
-                front=rear=-1;
-            else
-                front=(front+1)%SIZE;
-            return elem;
+            return -1;
         }
+        int elem=arr[front];
+        if (front==rear)
+            front=rear=-1;
+        else
+            front=(front+1)%SIZE;
+        return elem;
+        
     }
 
     void display(){

@@ -11,11 +11,11 @@ class Queue{
         rear=front=-1;
     }
 
-    bool isEmpty(){
+    inline bool isEmpty(){
         return front==-1 && rear==-1;
     }
     
-    bool isFull(){
+    inline bool isFull(){
         return rear==SIZE-1;
     }
     

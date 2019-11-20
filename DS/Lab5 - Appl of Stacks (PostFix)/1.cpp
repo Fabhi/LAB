@@ -1,6 +1,5 @@
-//Program to convert an Infix expression to an Prefix expression
+//Program to convert an Infix expression to a Postfix expression
 #include <iostream>
-#include <algorithm>
 #include <stdio.h>
 using namespace std;
 #define STACK_SIZE 100
@@ -13,7 +12,7 @@ class Stack {
         top=-1;
     }
     void push(int elem){
-        if(top<STACK_SIZE){
+        if(top!=STACK_SIZE-1){
             arr[++top]=elem;
         }
         else{
@@ -22,67 +21,41 @@ class Stack {
     }
 
     char pop(){
-        if(top>=0)
+        if(top!=-1)
             return arr[top--];
         return -1;
     }
 
     char peek(){
-        if(top>=0)
+        if(top!=-1)
             return arr[top];
         else{
             return -1;
         }
     }
-
-    bool isEmpty(){
-        if(top==-1){
-            return true;
-        }
-        return false;
-    }    
 };
 
 int getPriority(char c){
-    switch (c)
-    {
-    case '-':
-    case '+':
-        return 1;
-        break;
-    case '*':
-    case '/':
-        return 2;
-        break;
-    case '$':
-    case '^':
-        return 3;
-        break;
-    default:
-        return 0;
-        break;
+    switch (c){
+        case '-':
+        case '+':
+            return 1;
+            break;
+        case '*':
+        case '/':
+            return 2;
+            break;
+        case '$':
+        case '^':
+            return 3;
+            break;
+        default:
+            return 0;
     }
-}
-// New function defined to handle brackets
-string rev(string output){
-    string final;
-    int len=output.length();
-    for(int i=len-1;i>=0;i--){
-        if(output[i]=='('){
-            final+=')';}
-        else if(output[i]==')'){
-            final+='(';}
-        else
-        {
-            final+=output[i];
-        }
-    }
-    return final;
 }
 
-string infixtoPrefix(string infix){
-    infix=rev(infix);
-    infix="("+infix+")";
+string infixtoPostfix(string infix){
+    infix='('+infix+')';
     int l=infix.size();
     string output;
     Stack s;
@@ -97,12 +70,11 @@ string infixtoPrefix(string infix){
             s.pop();
         }
         else{
-            while(getPriority(infix[i])<getPriority(s.peek()))
+            while(getPriority(infix[i])<=getPriority(s.peek()))
                 output+=s.pop();
             s.push(infix[i]);
         }
     }
-    output=rev(output);
     return output;
 }
 
@@ -110,5 +82,5 @@ int main(){
     string s;
     cout<<"Enter the string:";
     cin>>s;
-    cout<<infixtoPrefix(s);
+    cout<<infixtoPostfix(s);
 }

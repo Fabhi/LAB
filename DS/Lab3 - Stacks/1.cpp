@@ -1,9 +1,7 @@
 // Program to check if a string is a palindrome using Stack
 #include <iostream>
-#include <string.h>
-#include <stdio.h>
 using namespace std;
-#define STACK_SIZE 2
+#define STACK_SIZE 22
 class Stack {
     private:
     int top;
@@ -13,7 +11,7 @@ class Stack {
         top=-1;
     }
     void push(int elem){
-        if(top+1<STACK_SIZE){
+        if(top!=STACK_SIZE-1){
             arr[++top]=elem;
         }
         else{
@@ -22,14 +20,14 @@ class Stack {
     }
 
     int pop(){
-        if(top>=0)
+        if(top!=-1)
             return arr[top--];
         cout<<"Stack Underflow!"<<endl;
         return -1;
     }
 
     int peek(){
-        if(top>=0)
+        if(top!=-1)
             return arr[top];
         else{
             cout<<"Underflow"<<endl;
@@ -46,19 +44,17 @@ class Stack {
 
 int main(){
     Stack stk1;
-    char a[50];
+    string a;
     cout<<"Enter String:";
-    gets(a);
-    int n=strlen(a);
-    for(int i=0;i<n;i++){
-        stk1.push(a[i]);}
+    getline(cin, a);
+    for(int i=0;i<a.length();i++)
+        stk1.push(a[i]);
+    
     int i;
-    for(i=0;(i<n)&&(stk1.pop()==a[i]);++i){}
-    if(i==n){
-        cout<<"String is a palindrome.";
-    }
-    else{
-        cout<<"String is not a palindrome.";
-    }
+    for( i=0 ; (i<a.length())&&(stk1.pop()==a[i]) ;++i);
 
+    if(i == a.length())
+        cout<<"String is a palindrome.";
+    else
+        cout<<"String is not a palindrome.";
 }

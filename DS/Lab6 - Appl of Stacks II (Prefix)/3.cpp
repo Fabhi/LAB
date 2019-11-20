@@ -33,6 +33,7 @@ class Stack{
 string pretoInfix(string pre){
     Stack s;
     string output;
+    // PRE DOESN'T HAVE BRACKETS
     reverse(pre.begin(),pre.end());
     int l=pre.length();
     for(int i=0;i<l;i++){
@@ -47,6 +48,7 @@ string pretoInfix(string pre){
         }
     }
     output=s.pop();
+    //INFIX HAS BRACKETS, THEREFORE THEY, INITIALLY ARE ADDED IN REVERSE.
     reverse(output.begin(),output.end());
     return output;
 }

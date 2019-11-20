@@ -3,7 +3,6 @@ using namespace std;
 
 //N-1 PASSES
 void bubbleSort(int a[], int n){
-    int temp;
     for(int i=0;i<n-1;i++){
         for(int j=0;j<n-i-1;j++){
             if(a[j]>a[j+1]){
@@ -28,15 +27,16 @@ void selectionSort(int a[], int n){
 }
 
 // N-1 PASSES
-void insertionSort(int array[], int size){
-    for(int step=1; step<size; step++){
-        int key = array[step];
-        int j=step-1;
-        while(key<array[j] && j>=0){
-            array[j+1] = array[j];
-            --j;
+void insertionSort(int a[], int n){
+    int key;
+    for(int i=1; i<n; i++){
+        key = a[i];
+        int j=i-1;
+        while(a[j]>key && j>=0){
+            a[j+1] = a[j];
+            j--;
         }
-        array[j+1]=key;
+        a[j+1]=key;
     }
 }
 

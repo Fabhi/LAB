@@ -1,5 +1,6 @@
-//Program to convert an Infix expression to a Postfix expression
+//Program to convert an Infix expression to an Prefix expression
 #include <iostream>
+#include <algorithm>
 #include <stdio.h>
 using namespace std;
 #define STACK_SIZE 100
@@ -12,7 +13,7 @@ class Stack {
         top=-1;
     }
     void push(int elem){
-        if(top!=STACK_SIZE-1){
+        if(top<STACK_SIZE){
             arr[++top]=elem;
         }
         else{
@@ -39,7 +40,7 @@ class Stack {
             return true;
         }
         return false;
-    }
+    }    
 };
 
 int getPriority(char c){
@@ -62,9 +63,26 @@ int getPriority(char c){
         break;
     }
 }
+// New function defined to handle brackets
+string rev(string output){
+    string final;
+    int len=output.length();
+    for(int i=len-1;i>=0;i--){
+        if(output[i]=='('){
+            final+=')';}
+        else if(output[i]==')'){
+            final+='(';}
+        else
+        {
+            final+=output[i];
+        }
+    }
+    return final;
+}
 
-string infixtoPostfix(string infix){
-    infix='('+infix+')';
+string infixtoPrefix(string infix){
+    infix="("+infix+")";
+    infix=rev(infix);
     int l=infix.size();
     string output;
     Stack s;
@@ -79,11 +97,12 @@ string infixtoPostfix(string infix){
             s.pop();
         }
         else{
-            while(getPriority(infix[i])<=getPriority(s.peek()))
+            while(getPriority(infix[i])<getPriority(s.peek()))
                 output+=s.pop();
             s.push(infix[i]);
         }
     }
+    output=rev(output);
     return output;
 }
 
@@ -91,5 +110,5 @@ int main(){
     string s;
     cout<<"Enter the string:";
     cin>>s;
-    cout<<infixtoPostfix(s);
+    cout<<infixtoPrefix(s);
 }
