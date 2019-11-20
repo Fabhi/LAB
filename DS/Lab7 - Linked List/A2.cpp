@@ -1,5 +1,4 @@
 // Program to merge two single linked list
-
 #include <iostream>
 using namespace std;
 
