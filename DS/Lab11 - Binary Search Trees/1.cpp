@@ -11,24 +11,24 @@ struct Node{
     }
 };
 
-Node* insert(Node *node,int elem){
-    if(node==NULL)
+Node* insert(Node *root,int elem){
+    if(root==NULL)
         return new Node(elem);       
-    if(elem>node->data)
-        node->right=insert(node->right,elem);
+    if(elem>root->data)
+        root->right=insert(root->right,elem);
     else
-        node->left=insert(node->left,elem);
-    return node;
+        root->left=insert(root->left,elem);
+    return root;
 }
 
 
-Node* search(Node *node, int elem){
-    if(node==NULL||node->data==elem)
-        return node;
-    else if(node->data<elem)
-        return search(node->right, elem);
+Node* search(Node *root, int elem){
+    if(root==NULL||root->data==elem)
+        return root;
+    else if(root->data<elem)
+        return search(root->right, elem);
     else
-        return search(node->left,elem);
+        return search(root->left,elem);
 }
 
 void inorder(Node *root){ 
@@ -39,32 +39,32 @@ void inorder(Node *root){
     inorder(root->right);
 }
 
-Node* deleteNode(Node* node, int elem){
-    if(node==NULL)
-        return node;
-    if(elem>node->data)
-        node->right=deleteNode(node->right,elem);
-    else if(elem<node->data)
-        node->left=deleteNode(node->left,elem);
+Node* deleteNode(Node* root, int elem){
+    if(root==NULL)
+        return root;
+    if(elem>root->data)
+        root->right=deleteNode(root->right,elem);
+    else if(elem<root->data)
+        root->left=deleteNode(root->left,elem);
     else{
-        if(node->left==NULL){
-            Node *temp=node->right;
-            delete node;
+        if(root->left==NULL){
+            Node *temp=root->right;
+            delete root;
             return temp;
         }
-        else if(node->right==NULL){
-            Node* temp= node->left;
-            delete node;
+        else if(root->right==NULL){
+            Node* temp= root->left;
+            delete root;
             return temp;
         }
         else{
             // Both children exist
-            Node *temp=node;
+            Node *temp=root;
             while(temp && temp->left){
                 temp=temp->left;
             }
-            node->data=temp->data;
-            node->right=deleteNode(node->right, temp->data);
+            root->data=temp->data;
+            root->right=deleteNode(root->right, temp->data);
         }
     }
 }
