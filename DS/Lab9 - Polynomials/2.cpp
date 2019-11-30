@@ -170,11 +170,10 @@ class Poly{
         node *trav= new node;
         trav=head;
         if(trav->next==head){
-            if(trav->exp==0){
-            cout<<trav->coff<<endl;
-            return;
-            }
-            cout<<trav->coff<<"x^"<<trav->exp<<endl;
+            if(trav->exp==0)
+                cout<<trav->coff<<endl;
+            else
+                cout<<trav->coff<<"x^"<<trav->exp<<endl;
             return;
         }
         do{

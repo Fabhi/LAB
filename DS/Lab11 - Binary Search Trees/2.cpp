@@ -29,9 +29,7 @@ Node* createTree(string postfix){
             s.push(temp);
         }
     }
-    Node *temp= s.top();
-    s.pop();
-    return temp;
+    return s.top();
 }
 
 void infix(Node *root){
@@ -58,15 +56,13 @@ int operate(int a, int b, char c){
     }
 }
 int evaluate(Node *root){
-    if(!isoperator(root->data)){
-        return root->data;
+    if(isdigit(root->data)){
+        return root->data-'0';
     }
     else{
-        int left=evaluate(root->left)-'0';
-        int right=evaluate(root->right)-'0';
-        int val= operate(left,right,root->data);
-        // root->data=val;
-        return val;
+        int left=evaluate(root->left);
+        int right=evaluate(root->right); 
+        return operate(left,right,root->data);
     }
 }
 int main(){

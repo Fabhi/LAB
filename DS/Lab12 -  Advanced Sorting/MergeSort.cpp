@@ -50,8 +50,8 @@ void MergeSort(int arr[], int beg, int end){
 }
 
 int main(){
-    int arr[]={7,10,36,1,45};
-    print(arr,5);
-    MergeSort(arr,0,5);
-    print(arr,5);
+    int arr[]={7,322,10,36,1,45};
+    print(arr,6);
+    MergeSort(arr,0,6);
+    print(arr,6);
 }

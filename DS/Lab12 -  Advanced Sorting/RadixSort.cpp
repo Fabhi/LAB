@@ -26,7 +26,7 @@ int passes(int arr[],int n){
 
 void RadixSort(int arr[], int n){
     int pass=passes(arr,n);
-    int bucket[10][10];
+    int bucket[10][n];
     int divisor=1;
     for(int p=0;p<pass;p++){
         int count[10]={0};

@@ -4,11 +4,13 @@ import java.awt.event.*;
 
 public class Comparison{
     public static void main(String args[]){
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new container();
+        SwingUtilities.invokeLater(
+            new Runnable() {
+                public void run() {
+                    new container();
+                }
             }
-        });
+        );
     }
 }
 

@@ -18,7 +18,6 @@ Node* insert(Node *root,int elem){
         root->right=insert(root->right,elem);
     else
         root->left=insert(root->left,elem);
-    return root;
 }
 
 
@@ -47,19 +46,20 @@ Node* deleteNode(Node* root, int elem){
     else if(elem<root->data)
         root->left=deleteNode(root->left,elem);
     else{
+        Node *temp;
         if(root->left==NULL){
-            Node *temp=root->right;
+            temp=root->right;
             delete root;
             return temp;
         }
         else if(root->right==NULL){
-            Node* temp= root->left;
+            temp= root->left;
             delete root;
             return temp;
         }
         else{
             // Both children exist
-            Node *temp=root;
+            temp=root;
             while(temp && temp->left){
                 temp=temp->left;
             }

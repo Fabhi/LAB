@@ -16,11 +16,9 @@ class Sparse{
         int r=a[0].row;
         int c=a[0].column;
         int v=a[0].value;
-        int frequency[v]={0};
-        int start[v];
-        b[0].row=c;
-        b[0].column=r;
-        b[0].value=v;
+        int frequency[c]={0};
+        int start[c];
+        b[0].set(a[0].column,a[0].row,a[0].value);
         if(v>0){
             for(int i=1;i<=v;i++){
                 frequency[a[i].column]++;
@@ -30,10 +28,8 @@ class Sparse{
                 start[i]=start[i-1]+frequency[i-1];
             }
             for(int i=0;i<=v;i++){
-                int j=start[a[i].column]++;
-                b[j].row=a[i].column;
-                b[j].column=a[i].row;
-                b[j++].value=a[i].value;
+                int j=start[a[i].column]+1;
+                b[j++].set(a[i].column,a[i].row,a[i].value);
             }
         }
     }

@@ -10,19 +10,17 @@ void print(int arr[],int n){
 }
 
 int partition(int arr[],int beg, int end){
-    int loc, left, right;
-    bool sorted;
-    sorted=false;
-    loc=left=beg;
-    right=end;
-    static int pass=1;
+    int loc=beg;
+    int left=beg;
+    int right=end;
+    bool sorted=false;
     while(!sorted){
         while(loc!=right && arr[loc]<=arr[right])
             right--;
         if(loc==right)
             sorted=true;
         else if(arr[loc]>arr[right]){
-            swap(&arr[loc],&arr[right]);
+            swap(arr[loc],arr[right]);
             loc=right;
         }
         //This block only runs if the right side is sorted
@@ -36,7 +34,6 @@ int partition(int arr[],int beg, int end){
                 loc = left;
             }
         }
-        pass++;
     }
     return loc;
 }

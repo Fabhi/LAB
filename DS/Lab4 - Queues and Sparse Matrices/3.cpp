@@ -20,20 +20,12 @@ class Sparse{
 
 Sparse* nTranspose(Sparse a[]){
     Sparse *b = new Sparse[a[0].value+1];
-    int r=a[0].row;
-    int c=a[0].column;
-    int v=a[0].value;
-    b[0].row=c;
-    b[0].column=r;
-    b[0].value=v;
+    b[0].set(a[0].column,a[0].row,a[0].value);
     int k=1;
-    for(int i=0;i<c;i++){
-        for(int j=1;j<=v;j++){
-            if(a[j].column==i){
-                b[k].row=a[j].column;
-                b[k].column=a[j].row;
-                b[k++].value=a[j].value;
-            }
+    for(int i=0;i<a[0].column;i++){
+        for(int j=1;j<=a[0].value;j++){
+            if(a[j].column==i)
+                b[k++].set(a[j].column,a[j].row,a[j].value);
         }
     }
     return b;
