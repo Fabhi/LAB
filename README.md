@@ -16,5 +16,5 @@ $ git init
 $ git remote add origin -f https://github.com/Fabhi/LAB.git  
 $ git config core.sparseCheckout true  
 $ cat >> .git/info/sparsecheckout  
-4th Sem  
+`4th Sem`  
 $ git pull origin master  
