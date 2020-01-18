@@ -1,4 +1,5 @@
 .vscode
 *.class
 *.exe
+*.obj
 tempcoderunnerfile.*
