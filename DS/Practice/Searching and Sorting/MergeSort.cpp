@@ -12,29 +12,19 @@ void print(int arr[],int n){
 void merge(int arr[], int beg, int mid, int end){
     int i=beg, j=mid+1, index=beg, temp[100], k;
     while((i<=mid) && (j<=end)){
-        if(arr[i] < arr[j]){
-            temp[index] = arr[i];
-            i++;
-        }
-        else{
-            temp[index] = arr[j];
-            j++;
-        }
+        if(arr[i] < arr[j])
+            temp[index] = arr[i++];
+        else
+            temp[index] = arr[j++];
         index++;
     }
     if(i>mid){
-        while(j<=end){
-            temp[index] = arr[j];
-            j++;
-            index++;
-        }
+        while(j<=end)
+            temp[index++] = arr[j++];
     }
     else{
-        while(i<=mid){
-            temp[index] = arr[i];
-            i++;
-            index++;
-        }
+        while(i<=mid)
+            temp[index++] = arr[i++];
     }
     for(k=beg;k<index;k++)
         arr[k] = temp[k];
