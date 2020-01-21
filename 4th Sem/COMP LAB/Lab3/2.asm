@@ -1,3 +1,4 @@
+;Program to add two 8-bit decimal numbers from DS to DS
 Code Segment
 num1 dB 25H
 num2 dB 25H

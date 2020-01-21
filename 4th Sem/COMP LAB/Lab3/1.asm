@@ -1,9 +1,10 @@
-Code Segment
+;Program to add two 16 bit HEX numbers from REG -> DS
+Data Segment
 sum dW 0H
 carry dW 0H
-Code ends
+Data ends
 
-Data Segment
+Code Segment
 Assume CS:Code, DS:Data
 Start:
 
