@@ -4,4 +4,5 @@
 *.obj
 *.EXE
 *.COM
+*.out
 tempcoderunnerfile.*
