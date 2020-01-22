@@ -11,12 +11,10 @@ struct node{
 class LinkedList{
     private:
     node *head;
-    int count;
     public:
 
     LinkedList(){
         head=NULL;
-        count=0;
     }
 
     void append(char elem){
@@ -24,7 +22,6 @@ class LinkedList{
         temp->data=elem;
         temp->next=head;
         head=temp;
-        count++;
     }
 
     void traverse(){
@@ -55,7 +52,6 @@ class LinkedList{
         const int vowels[] = {'a','b','c','d','e'};
         node *trav = head;
         node *trav2 = head->next;
-        bool found[count]= {false};
         int loc=0;
         while(trav2){
             loc++;
