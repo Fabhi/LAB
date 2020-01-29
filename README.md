@@ -16,3 +16,5 @@ For example, **to obtain only '4th Sem'**, use the following commands:
     $ git config core.sparseCheckout true  	
     $ echo "4th Sem" >> .git/info/sparse-checkout  
     $ git pull origin master  
+
+To report any erros, drop a pull request.
