@@ -3,15 +3,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 class UGraph{
+    private:
     int** adj;
     int n;
+    public:
     UGraph(int numb){
         n = numb;
-        // Dynamically initializing a 2D adjay
         adj = new int*[n];
         for(int i=0;i<n; ++i)
             adj[i] = new int[n];
-        // Initialize as 0
         for(int i=0;i<n;++i){
             for(int j=0;j<n;j++)
                 adj[i][j] = 0;
@@ -22,7 +22,7 @@ class UGraph{
         adj[dest][src]=1;
     }
     void DFS(int source){
-        bool visited[n]= {false};
+        bool visited[n] = {false};
         stack <int> s;
         s.push(source);
         visited[source] = true;
@@ -33,14 +33,11 @@ class UGraph{
                 if(adj[curr][i]==1 && !visited[i]){
                     visited[i]=true;
                     s.push(i);
+                    cout<<i<<" ";
                 }
             }
-            cout<<curr<<" ";
-            for(int i=0;i<n;i++){
-                cout<<visited[i]<<" ";
-            }
-            cout<<endl; 
         }
+        cout<<endl;
     }
 
     void BFS(int source){
@@ -55,13 +52,24 @@ class UGraph{
                 if(adj[c][i]==1 && !visited[i]){
                     visited[i]=true;
                     s.push(i);
+                    cout<<i<<" ";
                 }
             }
-            cout<<c<<" ";
-            for(int i=0;i<n;i++){
-                cout<<visited[i]<<" ";
-            }
-            cout<<endl;
         }
+        cout<<endl;
     }
 };
+
+int main(){
+    UGraph G(6);
+    G.addVertex(1,0);
+    G.addVertex(1,2);
+    G.addVertex(0,3);
+    G.addVertex(3,4);
+    G.addVertex(2,0);
+    G.addVertex(1,5);
+    cout<<"BFS: ";
+    G.BFS(2);
+    cout<<"DFS: ";
+    G.DFS(2);
+}
