@@ -1,0 +1,22 @@
+{
+    "configurations": [
+    {
+        "name": "C++ Debug(CHANGE NAME)",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": " ${workspaceFolder}/DS\\Practice\\Trees\\TreeRetry.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false
+    },
+    {
+        "type": "java",
+        "name": "CodeLens (Launch) - Third",
+        "request": "launch",
+        "mainClass": "Third",
+        "projectName": "180911168_200cb4ae"
+    }
+    ]
+}
