@@ -45,12 +45,13 @@ int main(){
         else
             break;
     }
-    
+    cout<<"Before Transpose:"<<endl;
     for(int i=1;i<n+1;i++){
         cout<<i<<"->";
         display(graph[i]);
         cout<<endl;
     }
+
     Node* trans[n]= {NULL};
     for(int i=1;i<n;i++){
         Node *curr=graph[i];
@@ -59,6 +60,8 @@ int main(){
             curr=curr->next;
         }
     }
+    
+    cout<<"After Transpose:"<<endl;
     for(int i=1;i<n+1;i++){
         cout<<i<<"->";
         display(trans[i]);
