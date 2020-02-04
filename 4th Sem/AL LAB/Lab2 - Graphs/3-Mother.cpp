@@ -51,22 +51,25 @@ bool motherVertexHelper(Node* graph[], int n, int src){
 }
 
 void motherVertex(Node* graph[], int n){
-	cout << "Mother Vertex are:";
+	cout << "Mother Vertex are: ";
 	for(int i=1;i<n;i++){
 		if(motherVertexHelper(graph, n, i)) cout << i << " ";
 	}
 }
 int main(){
-	Node* graph[6];
-	for(int i=0;i<6;i++){
-		graph[i] = NULL;
-	}
-	add(graph[1], 3);
-	add(graph[1], 4);
-	add(graph[2], 1);
-	add(graph[3], 2);
-	add(graph[4], 5);
-	
-	int visited[6] = {0};
-	motherVertex(graph, 6);
+	int n;
+    cout<<"Enter size:";
+    cin>>n;
+	Node* graph[n]= {NULL};
+    cout<<"Enter edges:"<<endl;
+    int a=0,b=0;
+    while(true){
+        cin>>a>>b;
+        if(a!=-1 && b!=-1)
+            add(graph[a], b);
+        else
+            break;
+    }
+	int visited[n] = {0};
+	motherVertex(graph, n);
 }
