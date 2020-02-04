@@ -1,4 +1,4 @@
-// Program to perform traversals(BFS and DFS) using 1-indexing
+// Program to perform DFS using 1-indexing
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,40 +37,25 @@ class UGraph{
             }
             cout<<curr<<" ";
         }
-        cout<<endl;
-    }
-
-    void BFS(int source){
-        bool visited[n+1]={false};
-        queue <int> s;
-        s.push(source);
-        visited[source]=true;
-        while(!s.empty()){
-            int c=s.front();
-            s.pop();
-            for(int i=1;i<n+1;i++){
-                if(adj[c][i]==1 && !visited[i]){
-                    visited[i]=true;
-                    s.push(i);
-                }
-            }
-            cout<<c<<" ";
-        }
-        cout<<endl;
     }
 };
 
 int main(){
-    UGraph G(6);
-    G.addVertex(6,4);
-    G.addVertex(4,3);
-    G.addVertex(3,2);
-    G.addVertex(2,5);
-    G.addVertex(2,1);
-    G.addVertex(1,5);
-    G.addVertex(4,5);
-    cout<<"BFS: ";
-    G.BFS(1);
+    int n;
+    cout<<"Enter size:";
+    cin>>n;
+    UGraph G(n);
+    cout<<"Enter edges:"<<endl;
+    int a, b;
+    while(true){
+        cin>>a>>b;
+        if(a!=-1 && b!=-1)
+            G.addVertex(a,b);
+        else
+            break;
+    }
+    cout<<"Enter starting edge:";
+    cin>>n;
     cout<<"DFS: ";
-    G.DFS(1);
+    G.DFS(n);
 }

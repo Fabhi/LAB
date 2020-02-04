@@ -3,7 +3,7 @@
 // 1.Perform DFS on given graph, while keeping track of last visited vertex
 // 2.Check is one of the vertex is a mother vertex by perfroming DFS from that vertex
 
-
+//*NOT WORKING*
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,12 +19,12 @@ struct Node{
 
 class Graph{
     int n;
-    Node* arr[];
+    Node* arr;
     
     public:
     Graph(int num){
         n=num;
-        arr = new Node*[n+1];
+        *arr = new Node*[n+1];
         for(int i=1;i<n+1;i++)
             arr[i]=NULL;
     }
