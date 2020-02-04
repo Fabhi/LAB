@@ -1,5 +1,3 @@
-
-
 #include<iostream>
 #include<queue>
 
@@ -43,8 +41,7 @@ bool path(Node* graph[], int visited[], int src, int dest){
 bool connected(Node* graph[], int n){
 	for(int i=0;i<n;i++){
 		for(int j=i;j<n;j++){
-			int visited[n];
-			for(int i=0;i<n;i++) visited[i] = 0;
+			int visited[n]={0};
 			if(!(path(graph, visited, i, j) || path(graph, visited, j,i))){
 				return false;
 			} 
@@ -67,5 +64,5 @@ int main(){
         else
             break;
     }
-    connected(graph,n)?cout<<"Cycle exists":cout<<"Cycle absent";
+    connected(graph,n)?cout<<"Graph connected":cout<<"Graph disconnected";
 }
