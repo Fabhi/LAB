@@ -10,24 +10,21 @@ Start:
         MOV AX, Data
         MOV DS, AX
         LEA SI, arr
-        LEA DI, arr+2
-        LEA BX, sum
+        LEA DI, sum
         MOV CH, 00H
         MOV CL, 05H
         CLC
 
 BACK:   MOV AL, [SI]
-        MOV BL, [DI]
+        MOV BL, [SI+2]
         ADD AL, BL
         DAA
-        MOV [BX], AL
-        INC SI
-        INC DI
-        MOV AL, [SI]
-        MOV BL, [DI]
+        ADD [DI], AL
+        MOV AL, [SI+1]
+        MOV BL, [SI+3]
         ADC AL, BL
         DAA
-        MOV [BX+1], AL
+        ADD [DI+1], AL
         ADC CARRY, 0
         CLC
         LOOP BACK
