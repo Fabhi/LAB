@@ -1,7 +1,4 @@
 *.class
-*.exe
 *.obj
-*.EXE
-*.COM
 *.out
 tempcoderunnerfile.*

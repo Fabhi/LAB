@@ -24,7 +24,7 @@ BACK:   MOV AL, [SI]
         MOV BL, [SI+3]
         ADC AL, BL
         DAA
-        ADD [DI+1], AL
+        ADC [DI+1], AL
         ADC CARRY, 0
         CLC
         LOOP BACK
