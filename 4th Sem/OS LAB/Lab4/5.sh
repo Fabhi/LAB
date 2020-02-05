@@ -8,7 +8,6 @@ for ((value=2; value<=$#; value++))
 do
     patterns+="\|${!value}"
 done
-echo $patterns
 
 while (true)
 do
