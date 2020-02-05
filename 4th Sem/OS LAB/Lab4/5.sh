@@ -23,7 +23,7 @@ do
                sed -e s/$i//g $where > text.txt
                mv text.txt $where
            done;;
-        *) exit 1;;
+        3) exit 0;;
     esac
 done
 
