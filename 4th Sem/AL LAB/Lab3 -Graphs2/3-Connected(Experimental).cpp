@@ -24,39 +24,47 @@ void add(Node*& head, int val){
 	temp->next = newn;
 }
 
-bool path(Node* graph[], int visited[], int src, int dest){
-	Node* temp = graph[src];
-	while(temp != NULL){
-		if(visited[temp->val] == 0){
-			if (temp->val == dest || path(graph, visited, temp->val, dest)){
-				visited[temp->val] = 1;
-				return true;
-			}
-		}
-		temp = temp->next;
+bool motherVertexHelper(Node* graph[], int n, int src){
+	queue<int> q;
+	int visited[n];
+	for(int i=0;i<n;i++){
+		visited[i] = 0;
 	}
-	return false;
+	visited[src] = 1;
+	int numvis = 1;
+	q.push(src);
+	
+	while(!q.empty()){
+		Node* temp = graph[q.front()];
+		numvis++;
+		q.pop();
+		
+		while(temp != NULL){
+			if(visited[temp->val] == 0){
+				visited[temp->val] = 1;
+				q.push(temp->val);
+			}
+			temp = temp->next;
+		}
+	}
+	return (numvis == n);
 }
 
 bool connected(Node* graph[], int n){
+	bool found = false;
 	for(int i=1;i<n;i++){
-		for(int j=i;j<n;j++){
-			int visited[n]={0};
-			if(!(path(graph, visited, i, j) || path(graph, visited, j,i))){
-				return false;
-			} 
-		}
+		if(motherVertexHelper(graph, n, i))
+		    found=true;
 	}
-	return true;
+	return found;
 }
-
 int main(){
 	int n;
     cout<<"Enter size:";
     cin>>n;
 	Node* graph[n+1]= {NULL};
     cout<<"Enter edges:"<<endl;
-    int a, b;
+    int a=0,b=0;
     while(true){
         cin>>a>>b;
         if(a!=-1 && b!=-1)
@@ -64,5 +72,6 @@ int main(){
         else
             break;
     }
-    connected(graph,n+1)?cout<<"Graph connected\n":cout<<"Graph disconnected\n";
+	int visited[n] = {0};
+	connected(graph,n+1)?cout<<"Graph connected\n":cout<<"Graph disconnected\n";
 }
