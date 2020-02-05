@@ -43,7 +43,7 @@ int main(){
 	int n;
     cout<<"Enter size:";
     cin>>n;
-	Node* graph[n]= {NULL};
+	Node* graph[n+1]= {NULL};
     cout<<"Enter edges:"<<endl;
     int a=0,b=0;
     while(true){
@@ -55,6 +55,6 @@ int main(){
     }
     cout<<"Path between:";
     cin>>a>>b;
-    int visited[n]={0};
+    int visited[n+1]={0};
     cout<<path(graph,visited,a,b);
 }

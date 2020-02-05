@@ -50,11 +50,13 @@ bool motherVertexHelper(Node* graph[], int n, int src){
 	return (numvis == n);
 }
 
-void motherVertex(Node* graph[], int n){
-	cout << "Mother Vertex are: ";
+bool Strongly(Node* graph[], int n){
+	int k=0;
 	for(int i=1;i<n;i++){
-		if(motherVertexHelper(graph, n, i)) cout << i << " ";
+		if(motherVertexHelper(graph, n, i)) 
+		    k++;
 	}
+	return k==n-1;
 }
 int main(){
 	int n;
@@ -71,5 +73,5 @@ int main(){
             break;
     }
 	int visited[n+1] = {0};
-	motherVertex(graph, n+1);
+	Strongly(graph, n+1)?cout<< "Strongly Connected":cout<< "Not Strongly Connected";
 }
