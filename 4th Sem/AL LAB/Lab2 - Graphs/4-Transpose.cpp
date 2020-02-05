@@ -35,7 +35,7 @@ int main(){
 	int n;
     cout<<"Enter size:";
     cin>>n;
-	Node* graph[n]= {NULL};
+	Node* graph[n+1]= {NULL};
     cout<<"Enter edges:"<<endl;
     int a=0,b=0;
     while(true){
@@ -52,8 +52,8 @@ int main(){
         cout<<endl;
     }
 
-    Node* trans[n]= {NULL};
-    for(int i=1;i<n;i++){
+    Node* trans[n+1]= {NULL};
+    for(int i=1;i<n+1;i++){
         Node *curr=graph[i];
         while(curr){
             add(trans[curr->val],i);
