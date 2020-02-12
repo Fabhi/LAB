@@ -1,5 +1,6 @@
+;PROGRAM TO ADD 10 4-DIGIT DECIMAL NUMBERS STORED IN DS AND STORE THE RESULT IN DS
 Data Segment
-arr dW 1111H, 2222H, 3333H, 4444H, 5555H, 6666H, 7777H, 8888H, 9999H, 0AAAAH
+arr dW 1111H, 2222H, 3333H, 4444H, 5555H, 6666H, 7777H, 8888H, 9999H, 1111H
 sum dW 0000H
 carry dB 00H
 Data ends
@@ -10,24 +11,32 @@ Start:
         MOV AX, Data
         MOV DS, AX
         LEA SI, arr
-        LEA DI, sum
-        MOV CH, 00H
-        MOV CL, 05H
+        MOV CX, 10
+        MOV AX, 0H ;STORING SUM IN AX
+        MOV DL, 0H ;STORING CARRY IN DL
         CLC
 
-BACK:   MOV AL, [SI]
-        MOV BL, [SI+2]
+BACK:   
+        MOV BL, [SI]
         ADD AL, BL
         DAA
-        ADD [DI], AL
-        MOV AL, [SI+1]
-        MOV BL, [SI+3]
-        ADC AL, BL
+        XCHG AL, AH
+
+        MOV BL, [SI+1]
+        ADC AL , BL
         DAA
-        ADC [DI+1], AL
-        ADC CARRY, 0
+        XCHG AL , AH
+
+        ADC DL, 0
+        INC SI
+        INC SI
         CLC
+
         LOOP BACK
+
+        MOV SUM, AX
+        MOV CARRY, DL
+
         MOV AH, 4CH
         INT 21H
 CODE ENDS
