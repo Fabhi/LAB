@@ -2,6 +2,14 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
+
+void print(int arr[],int n){
+    for(int i=1;i<=n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
 class Graph{
     private:
     int** adj;
@@ -20,25 +28,19 @@ class Graph{
     void addVertex(int src, int dest){
         adj[src][dest]=1;
     }
-
-    bool checkCycle(){
-        for (int i=0;i<n;i++){
-
-        }
-    }
     void TopologicalSort(){
-        // checkCycle()?cout<<"Graph contains cycle":cout<<"No cycles detected";
-        int indegree[n+1] = {0};
-        bool visited[n+1] = {false};
+        int indegree[n+1] = {0};       //1.To store the indegree of each vertex
+        bool visited[n+1] = {false};  // 2.To mark each vertex as visited or not vistited
+        int T[n+1];                  //  3.Contains the final answer to the topological sort
         queue <int> s;
-        int T[n+1];
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=n;j++){
+        for(int i=1;i<=n;i++){     //    4.Develop indegree array
+          for(int j=1;j<=n;j++){
                 if(adj[j][i])
                     indegree[i]++;
             }
         }
-        for(int i=1;i<=n;i++){
+        print(indegree,n);
+        for(int i=1;i<=n;i++){   //      5.If indegree is 0, then push to queue and mark as visited
             if(!indegree[i]){
                 s.push(i);
                 visited[i] = true;
@@ -47,14 +49,15 @@ class Graph{
         int j=1;
         while(!s.empty()){
             int a = s.front();
-            T[j++] = a;
-            cout<<a<<" ";
+            s.pop();
+            T[j++] = a;           //       6. Push to the solution array every pop from the queue.
             for(int i=1; i<=n;i++){
                 if(adj[a][i] && !visited[i]){
                     indegree[i]--;
-                    if(!indegree[i])
+                    if(!indegree[i]){
                         s.push(i);
                         visited[i]=true;
+                    }
                 }
             }
         }
@@ -94,3 +97,5 @@ int main(){
 // 5 7
 // 7 6
 // -1 -1
+
+// Answer = 1 2 3 4 5 7 6

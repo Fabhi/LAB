@@ -20,21 +20,22 @@ void printtasks(Task arr[],int n){
         cout<<"\n"<<"Task Allocation For Machine :"<<used+1<<"\n";
         cout<<"("<<arr[i].start<<","<<arr[i].finish<<")"<<"\n";
         selected[i]=1;
-        // 'j' handles the old machine finding new jobs
+        // 'j' handles the old machine finding new jobs after being done with the current job
         for(int j=i+1;j<n;j++){
             if(selected[j])
                 continue;
             if(arr[i].finish<=arr[j].start){
-                i=j;
+                i=j;                        // i is modified here, remember to reverse the change
                 selected[j]=1;
                 cout<<"("<<arr[j].start<<","<<arr[j].finish<<")"<<"\n";
             }
         }
-        // Bring i back to the original value and increment used(i is incremented by the loop)
+        // Bring i back to the original value and only increment used(i is automatically incremented by the loop)
         i=used++;
     }
     cout<<"\n"<<"Total Machines Used "<<used;
 }
+
 int main(){
     Task arr[10];
     int n;
