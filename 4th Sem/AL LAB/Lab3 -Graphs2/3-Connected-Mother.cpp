@@ -25,6 +25,7 @@ void add(Node*& head, int val){
 }
 
 bool motherVertexHelper(Node* graph[], int n, int src){
+	// Search for mother vertex using BFS
 	queue<int> q;
 	int visited[n];
 	for(int i=0;i<n;i++){
@@ -51,6 +52,7 @@ bool motherVertexHelper(Node* graph[], int n, int src){
 }
 
 bool connected(Node* graph[], int n){
+	// Concept: If a mother vertex exists i.e. every edge can be reached from M.V. , then the graph is connected.
 	bool found = false;
 	for(int i=1;i<n;i++){
 		if(motherVertexHelper(graph, n, i))
