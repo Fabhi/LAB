@@ -51,12 +51,12 @@ bool motherVertexHelper(Node* graph[], int n, int src){
 }
 
 bool Strongly(Node* graph[], int n){
-	int k=0;
+	// if all vertices are M.V. then graph is strongly connected.
+	// If any vertex is not M.V. then graph is weakly connceted.
 	for(int i=1;i<n;i++){
-		if(motherVertexHelper(graph, n, i)) 
-		    k++;
+		if(!motherVertexHelper(graph, n, i)) 
+		    return false;
 	}
-	return k==n-1;
 }
 int main(){
 	int n;

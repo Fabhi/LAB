@@ -7,7 +7,7 @@ bool* load_container(int max, int* weights, int n){
     int temp=max;
     bool* taken=new bool[n];
     int i=0;
-    while(true){
+    while(i<n){
         if((max-weights[i])>=0){
             max-=weights[i];
             taken[i]=true;
