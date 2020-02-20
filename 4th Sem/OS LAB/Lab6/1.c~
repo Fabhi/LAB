@@ -64,7 +64,7 @@ void SJF(){
         printf("%d -> (%d %d)\n", p[i].pid, start, timer);
         if(p[i].rem_time==0){
             TAT+=(timer-p[i].arrival_time);
-            WAT+=(timer-p[i].arrival_time-p[i].burst_time);       
+            WAT+=(start-p[i].arrival_time-ran);
             done++;
         }
     }
