@@ -4,16 +4,16 @@
 #include <unistd.h>     //Contains the API for POSIX system calls
 #include <string.h>
 int main(int argc, char** argv){
-    int i, j;
-    char temp[100];
+    int i, j;    
     if(fork()==0){
+        char* temp;
         printf("Sorted Array: ");
         for(i=1;i<argc;i++){
-            for(j=1;j<argc-i-1;j++){
+            for(j=1;j<argc-i;j++){
                 if(strcmp(argv[j],argv[j+1])>0){
-                    strcpy(temp,argv[j]);
-                    strcpy(argv[j],argv[j+1]);
-                    strcpy(argv[j+1],temp);
+                    temp = argv[j];
+                    argv[j] = argv[j+1];
+                    argv[j+1] = temp;
                 }
             }
 
@@ -21,6 +21,7 @@ int main(int argc, char** argv){
         for(i=1;i<argc;i++){
             printf("%s ", argv[i]);
         }
+        printf("\n");
         return 1;
     }
     if(fork()>0){

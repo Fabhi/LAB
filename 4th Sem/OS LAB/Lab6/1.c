@@ -95,7 +95,6 @@ void RR(){
                 p[i].rem_time--;
                 count--;
             }
-            int ran = p[i].rem_time;
             if(start!=timer){
                 printf("%d -> (%d %d)\n", p[i].pid, start, timer);
                 if(p[i].rem_time==0){
