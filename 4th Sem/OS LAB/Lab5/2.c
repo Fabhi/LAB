@@ -16,9 +16,11 @@ int main(int argc, char** argv){
                     strcpy(argv[j+1],temp);
                 }
             }
+
+        }
+        for(i=1;i<argc;i++){
             printf("%s ", argv[i]);
         }
-        printf("\n");
         return 1;
     }
     if(fork()>0){
