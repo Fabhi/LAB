@@ -37,24 +37,21 @@ int main(){
     pthread_t readers[r], writers[w];
     sem_init(&mutex, 0, 1);
     sem_init(&db, 0, 1);
-    int i=0, j=0;
-    while(i<r || j<w){
+    int i=0;
+    while(i<r||i<w){
         if(i<r)
             pthread_create(&readers[i], NULL, reader,(void *)i+1);
-        if(j<w)
-            pthread_create(&writers[j], NULL, writer,(void *)j+1);
+        if(i<w)
+            pthread_create(&writers[i], NULL, writer,(void *)i+1);
         i++;
-        j++;
     }
-    i=1;
-    j=1;
-    while(i<r || j<w){
+    i=0;
+    while(i<r || i<w){
         if(i<r)
             pthread_join(readers[i], NULL);    
-        if(j<w)
-            pthread_join(writers[j], NULL);
-        i++;
-        j++;    
+        if(i<w)
+            pthread_join(writers[i], NULL);
+        i++; 
     }
     sem_destroy(&mutex);
     sem_destroy(&db);

@@ -14,9 +14,9 @@ void *producer( void * param){
     for ( int i=0; i<max; i++ ){
         sem_wait(&empty);  //Wait for post on empty
         pthread_mutex_lock( &mutex );
-        queue[in] = i;
+        queue[in] = i+1;
         in = (in+1)%capacity;
-        printf("Produced %d\n", i);
+        printf("Produced %d\n", i+1);
         pthread_mutex_unlock( &mutex );
         sem_post( &full );  //Signal full
     }
