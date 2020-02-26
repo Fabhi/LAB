@@ -24,7 +24,7 @@ void *producer( void * param){
 void *consumer(void * param){
     int out = 0;
     for ( int i=0; i<max; i++ ){
-        sem_wait(&full); //Wait for post on full
+        sem_wait(&full);  //Wait for post on full
         pthread_mutex_lock( &mutex );
         printf("Consumed %i\n", queue[out]);
         out= (out+1)%capacity;
