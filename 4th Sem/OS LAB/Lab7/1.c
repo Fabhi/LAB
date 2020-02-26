@@ -29,7 +29,7 @@ void *consumer(void * param){
         printf("Consumed %i\n", queue[out]);
         out= (out+1)%capacity;
         pthread_mutex_unlock( &mutex );
-        sem_post(&empty);  //Signal full
+        sem_post(&empty);  //Signal empty
     }
 }
 int main(){
