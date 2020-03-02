@@ -15,7 +15,7 @@ class UGraph{
             adj[i] = new int[n];
         for(int i=0;i<n;++i){
             for(int j=0;j<n;j++)
-                adj[i][j] = 9999;
+                adj[i][j] = inf;
         }
     }
     void addVertex(int src, int dest, int cost){

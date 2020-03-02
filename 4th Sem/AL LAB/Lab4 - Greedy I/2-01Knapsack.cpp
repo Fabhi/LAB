@@ -10,7 +10,7 @@ class item{
 };
 
 bool sort_weight(item i1, item i2){
-    return i1.weight>i2.weight;
+    return i1.weight<i2.weight;
 }
 
 bool sort_value(item i1, item i2){
@@ -39,6 +39,8 @@ int sort_helper(item items[],int n,string s){
 void load_knapsack(int max, item items[], int n, string s){
     if (!sort_helper(items,n,s)) return;
     bool* taken = new bool[n];
+    for(int i=0;i<n;i++) 
+        taken[i]=false;
     int used = max;
     int profit=0;
     int i=0;

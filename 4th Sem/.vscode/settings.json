@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.txt": "plaintext",
+        "*.html": "html",
+        "*.tcc": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "string_view": "cpp",
+        "algorithm": "cpp",
+        "random": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "valarray": "cpp"
+    }
+}

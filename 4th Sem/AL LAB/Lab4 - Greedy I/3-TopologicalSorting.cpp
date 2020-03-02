@@ -39,6 +39,8 @@ class Graph{
                     indegree[i]++;
             }
         }
+        // Print Indegree array
+        cout<<"Indegree Array: ";
         print(indegree,n);
         for(int i=1;i<=n;i++){   //      5.If indegree is 0, then push to queue and mark as visited
             if(!indegree[i]){
@@ -61,6 +63,7 @@ class Graph{
                 }
             }
         }
+        cout<<"Topologically Sorted Vertices: ";
         for(int i=1;i<=n;i++)
             cout<<T[i]<<" ";
         cout<<endl;
