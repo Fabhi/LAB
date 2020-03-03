@@ -6,7 +6,6 @@
 using namespace std;
 const int inf=9999;
 
-
 class Graph{
     private:
     int** adj;
@@ -78,26 +77,26 @@ class Graph{
 };
 
 int main(){
-    // int n;
-    // cout<<"Enter size:";
-    // cin>>n;
-    // UGraph G(n);
-    // cout<<"Enter edges and cost:"<<endl;
-    // int a, b, cost;
-    // while(true){
-    //     cin>>a>>b>>cost;
-    //     if(a!=-1 && b!=-1)
-    //         G.addVertex(a,b,cost);
-    //     else
-    //         break;
-    // }
-    Graph G(5);
-    G.addVertex(1,2,6);
-    G.addVertex(1,4,1);
-    G.addVertex(2,5,2);
-    G.addVertex(2,3,5);
-    G.addVertex(4,2,2);
-    G.addVertex(4,5,1);
-    G.addVertex(5,3,5);
-    G.dijkstra(1);
+    int n;
+    cout<<"Enter size:";
+    cin>>n;
+    Graph G(n);
+    cout<<"Enter edges and cost: (<-1, -1> to stop)"<<endl;
+    int a, b, cost;
+    while(true){
+        cin>>a>>b>>cost;
+        if(a!=-1 && b!=-1)
+            G.addVertex(a,b,cost);
+        else
+            break;
+    }
 }
+    // Graph G(5);
+    // G.addVertex(1,2,6);
+    // G.addVertex(1,4,1);
+    // G.addVertex(2,5,2);
+    // G.addVertex(2,3,5);
+    // G.addVertex(4,2,2);
+    // G.addVertex(4,5,1);
+    // G.addVertex(5,3,5);
+    // G.dijkstra(1);
