@@ -18,3 +18,5 @@ For example, **to obtain only '4th Sem'**, use the following commands:
     $ git pull origin master  
 
 To report any erros, drop a pull request.
+
+[![Run on Repl.it](https://repl.it/badge/github/Fabhi/LAB)](https://repl.it/github/Fabhi/LAB)
