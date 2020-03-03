@@ -2,7 +2,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <algorithm>
-#include <vector>
 using namespace std;
 const int inf=9999;
 
@@ -90,6 +89,9 @@ int main(){
         else
             break;
     }
+    cout<<"Enter the source:";
+    cin>>n;
+    G.dijkstra(n);
 }
     // Graph G(5);
     // G.addVertex(1,2,6);
