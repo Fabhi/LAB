@@ -1,4 +1,6 @@
 // Program to implement QuickSort
+
+// TODO: Write the recurrence relation using Master's Theorem in manual
 #include <iostream>
 using namespace std;
 
