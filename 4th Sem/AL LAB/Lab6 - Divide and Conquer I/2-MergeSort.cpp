@@ -39,8 +39,13 @@ void MergeSort(int arr[], int beg, int end){
 }
 
 int main(){
-    int arr[]={7,322,1110,36,1,45};
-    print(arr,6);
-    MergeSort(arr,0,6);
-    print(arr,6);
+    int n;
+    cout<<"Enter size: ";
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+    print(arr,n);
+    MergeSort(arr,0,n);
+    print(arr,n);
 }
