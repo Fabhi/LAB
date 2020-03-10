@@ -9,7 +9,6 @@ pair<int, int> getminmax(int a[],int low,int high){
 		minmax.second=a[low];
 		return minmax;
 	}
-
 	if(high==low+1){
 		if(a[low]>a[high]){
 			minmax.second=a[low];
