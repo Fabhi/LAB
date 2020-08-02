@@ -4,6 +4,7 @@
         "*.txt": "plaintext",
         "*.html": "html",
         "string": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "algorithm": "cpp"
     }
 }

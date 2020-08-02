@@ -1,3 +1,5 @@
+// Program to implement the addition of two matrices
+
 #include <iostream>
 using namespace std;
 int main(){

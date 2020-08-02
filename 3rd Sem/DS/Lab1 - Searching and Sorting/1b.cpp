@@ -1,3 +1,4 @@
+// Program to implement Binary Search
 #include <iostream>
 using namespace std;
 int binarysearch(int a[],int n, int elem){

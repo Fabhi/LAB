@@ -1,3 +1,5 @@
+// Program to implement Linear Search
+
 #include <iostream>
 using namespace std;
 int main(){

@@ -1,3 +1,5 @@
+// Program to compare two strings
+
 #include <iostream>
 using namespace std;
 int main(){
@@ -17,4 +19,5 @@ int main(){
     else{
         cout<<"String 1 is equal to String 2";
     }
+    
 }

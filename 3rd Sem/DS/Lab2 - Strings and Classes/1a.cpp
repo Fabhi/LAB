@@ -1,3 +1,5 @@
+// Program to manually find the length of a string using a character array
+
 #include <iostream>
 using namespace std;
 int main(){
