@@ -15,7 +15,7 @@ int main(){
   }
 
   serverAddr.sin_family = AF_INET;
-  serverAddr.sin_port = htons(22222);
+  serverAddr.sin_port = htons(22223);
   serverAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
   if(connect(sd, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0){
@@ -46,7 +46,7 @@ int main(){
       exit(1);
     }
 
-    fputs(buffer, stdout);
+    printf("Received String : %s\n",buffer);
 
   }
 }

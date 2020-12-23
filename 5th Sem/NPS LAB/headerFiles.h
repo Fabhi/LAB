@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <arpa/inet.h>
 
 
 // Common Declarations
@@ -22,8 +23,8 @@ int length; // Length of the buffer
 
 // Declarations for Server
 struct sockaddr_in clientAddr; // Client Address
-int clAddrLen; // Length of client Address
+socklen_t clAddrLen; // Length of client Address
 
 // Declarations for Client
 //int ns; //Number of bytes to send
-int slAddrLen;  // Length of socket Address
+socklen_t slAddrLen;  // Length of socket Address

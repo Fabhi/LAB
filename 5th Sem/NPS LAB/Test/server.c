@@ -13,8 +13,8 @@ int main(){
     exit(1);
   }
   serverAddr.sin_family = AF_INET;
-  serverAddr.sin_port = htons(22222);
-  serverAddr.sin_addr.s_addr = inet_addr(INADDR_ANY);
+  serverAddr.sin_port = htons(22223);
+  serverAddr.sin_addr.s_addr = htons(INADDR_ANY);
 
   if(bind(sd, (struct sockaddr*) &serverAddr, sizeof(serverAddr)) < 0){
     printf("Binding Error");
@@ -29,8 +29,8 @@ int main(){
   }
 
   printf("Listening...\n");
-
-  if((newsd=accept(sd, (struct sockaddr*) &clientAddr, sizeof(clientAddr)))<0){
+  clAddrLen =  sizeof(clientAddr);
+  if((newsd=accept(sd, (struct sockaddr*) &clientAddr, &clAddrLen))<0){
     printf("Accepting Error");
     close(sd);
     exit(1);
@@ -54,7 +54,7 @@ int main(){
     }
 
     // Display the recieved string
-    printf("Received string : %s", buffer);
+    printf("Received string : %s \n", buffer);
 
     readIntoBuffer();
     if(send(newsd, buffer, length, 0) < 0){
