@@ -8,7 +8,7 @@ void readIntoBuffer(void){
 }
 
 int main(){
-  if((sd = socket(AF_INET, SOCK_STREAM, 0)) < 0){
+  if((sd = socket(PF_INET, SOCK_STREAM, 0)) < 0){
     printf("Socket Creation Error");
     exit(1);
   }
@@ -54,7 +54,7 @@ int main(){
     }
 
     // Display the recieved string
-    printf("Received string : %s", &buffer);
+    printf("Received string : %s", buffer);
 
     readIntoBuffer();
     if(send(newsd, buffer, length, 0) < 0){
