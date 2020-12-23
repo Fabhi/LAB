@@ -28,46 +28,32 @@ main()
 	clientaddr.sin_family=AF_INET;
 	clientaddr.sin_port=htons(3389);
 	clientaddr.sin_addr.s_addr=inet_addr("127.0.0.1");
-
-	retval=bind(sockfd,(struct sockaddr*)&clientaddr,sizeof(clientaddr));
-	if(retval==1)
-	{
+	if(bind(sockfd,(struct sockaddr*)&clientaddr,sizeof(clientaddr)) == -1)	{
 		printf("Binding error");
 		close(sockfd);
+		exit(1);
 	}
 
-	for (i = 0; ; i+= 1)
-	{
-
-
+	while(1){
 		printf("enter the text\n");
-		scanf("%s",buff);
-
-		sentbytes=sendto(sockfd,buff,sizeof(buff),0,
-		(struct sockaddr*)&serveraddr,sizeof(serveraddr));
-
-		if(sentbytes==-1)
-		{
-		printf("sending error");
-		close(sockfd);
+		fgets(buff, MAXSIZE, stdin);
+		if(sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*)&serveraddr,sizeof(serveraddr))==-1){
+			printf("sending error");
+			close(sockfd);
+			exit(1);
 		}
 
-		if (buff[0] == 's' && buff[1] == 't' && buff[2] == 'o' && buff[3] == 'p')
-		{
+		if (strcmp(buff, "stop\n") == 0)
 			break;
-		}
 
 		int size=sizeof(serveraddr);
 		recedbytes=recvfrom(sockfd,buff,sizeof(buff),0,(struct sockaddr*)&serveraddr,&size);
-		puts(buff);
+		fputs(buff, stdout);
 		printf("\n");
 
-		if (buff[0] == 's' && buff[1] == 't' && buff[2] == 'o' && buff[3] == 'p')
-		{
+		if (strcmp(buff, "stop\n") == 0)
 			break;
-		}
 
 	}
-
 	close(sockfd);
 }

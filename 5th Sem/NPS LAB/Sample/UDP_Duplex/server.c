@@ -9,7 +9,7 @@
 
 main()
 {
-	int sockfd,newsockfd,retval,i;
+	int sockfd, retval, i;
 	socklen_t actuallen;
 	int recedbytes,sentbytes;
 	struct sockaddr_in serveraddr,clientaddr;
@@ -51,15 +51,15 @@ main()
 			close(sockfd);
 		}
 
-		puts(buff);
+		fputs(buff, stdout);
 		printf("\n");
 
-		if (buff[0] == 's' && buff[1] == 't' && buff[2] == 'o' && buff[3] == 'p')
+		if (strcmp(buff,"stop\n") == 0)
 		{
 			break;
 		}
 
-		scanf("%s", buff);
+		fgets(buff, MAXSIZE, stdin);
 		sentbytes=sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*)&clientaddr,sizeof(clientaddr));
 		if(sentbytes==-1)
 		{
@@ -67,7 +67,7 @@ main()
 			close(sockfd);
 		}
 
-		if (buff[0] == 's' && buff[1] == 't' && buff[2] == 'o' && buff[3] == 'p')
+		if (strcmp(buff,"stop\n") == 0)
 		{
 			break;
 		}
@@ -76,5 +76,4 @@ main()
 
 
 	close(sockfd);
-	close(newsockfd);
 }
