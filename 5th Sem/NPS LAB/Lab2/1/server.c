@@ -14,16 +14,13 @@
 
 #define MAX_LEN 100
 unsigned int noOfLines;
-void replaceAll(char * str,
-  const char * oldWord,
-    const char * newWord) {
+void replaceAll(char * str,const char * oldWord, const char * newWord) {
   char * pos, temp[1000];
   int index = 0;
   int owlen;
   owlen = strlen(oldWord);
-  /*
-   * Repeat till all occurrences are replaced.
-   */
+
+  //Repeat till all occurrences are replaced.
   while ((pos = strstr(str, oldWord)) != NULL) {
     // Bakup current line
     strcpy(temp, str);
