@@ -15,16 +15,8 @@
 
 // Common Declarations
 int sd, newsd; // socket descriptor
-int nr, ns; // Number of bytes recieved
-char buffer[256]; // Input Buffer
-struct sockaddr_in serverAddr;  //Server Address
-int bindCode;
 int length; // Length of the buffer
-
-// Declarations for Server
-struct sockaddr_in clientAddr; // Client Address
-socklen_t clAddrLen; // Length of client Address
-
-// Declarations for Client
-//int ns; //Number of bytes to send
-socklen_t slAddrLen;  // Length of socket Address
+char buffer[256]; // Input Buffer
+struct sockaddr_in serverAddr, clientAddr;  //Server Address
+socklen_t clAddrLen = sizeof(struct sockaddr_in); // Length of client Address
+socklen_t slAddrLen = sizeof(struct sockaddr_in);  // Length of socket Address
