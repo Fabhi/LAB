@@ -5,6 +5,7 @@
         "*.html": "html",
         "string": "cpp",
         "random": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iostream": "cpp"
     }
 }

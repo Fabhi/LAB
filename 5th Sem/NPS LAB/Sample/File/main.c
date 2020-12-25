@@ -17,7 +17,7 @@ int main(){
         printf("%s %s %s\n", user, pass, balance); //Store each line in file
     }
     
-    fseek(fp, 0, SEEK_SET); // Go to start of File
+    fseek(fp, 0, SEEK_SET); // Go to start of File or use rewind(fp);
     //To read \n separated values
     fgets(buffer, 256, fp);
     fputs(buffer, stdout);

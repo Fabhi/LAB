@@ -11,6 +11,9 @@ void insertionSort(int array[], int size){
         --j;
     }
     array[j+1]=key;
+    for(int i=0;i<size;i++)
+        cout<<array[i]<<" ";
+    cout<<endl;
   }
 }
 
