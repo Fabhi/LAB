@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+<body>
+    <h3>
+        Feedback Form
+    </h3>
+    <form action="null" >
+        <label for="name">Name : </label>
+        <input type="text" id="name"/><br><br>
+        <label for="address">Address : </label>
+        <input type="text" id="address"/><br><br>
+        <label for="email">Email : </label>
+        <input type="email" id="email"/><br>
+        
+        <!-- Likings Checkbox -->
+        <br>
+        <div>
+            <b>
+                What did you like most about the campus?
+            </b><br>
+
+            <input type="checkbox" id="option1" value="students" class="liking"/>
+            <label for= "option1"> Students </label><br>
+
+            <input type="checkbox" id="option2" value="location" class="liking"/>
+            <label for= "option2"> Location </label><br>
+
+            <input type="checkbox" id="option3" value="campus" class="liking"/>
+            <label for= "option3"> Campus </label><br>
+
+            <input type="checkbox" id="option4" value="atmosphere" class="liking"/>
+            <label for= "option4"> Atmosphere </label><br>
+
+            <input type="checkbox" id="option5" value="dorm" class="liking"/>
+            <label for= "option5"> Dorm Rooms </label><br>
+
+            <input type="checkbox" id="option6" value="sports" class="liking"/>
+            <label for= "option6"> Sports </label><br>
+        </div>
+        
+        <!-- Interests Radio -->
+        <br>
+        <div>
+            <b>
+                How did you become interested in the campus?
+            </b><br>
+
+            <input type="radio" id="option1_radio" value="friends" name="interests" checked/>
+            <label for= "option1_radio"> Friends </label><br>
+
+            <input type="radio" id="option2_radio" value="television" name="interests"/>
+            <label for= "option2_radio"> Television </label><br>
+
+            <input type="radio" id="option3_radio" value="internet" name="interests"/>
+            <label for= "option3_radio"> Internet </label><br>
+            
+            <input type="radio" id="option4_radio" value="other" name="interests"/>
+            <label for= "option4_radio"> Other </label><br>
+            
+        </div>
+        
+        <!-- Text Area for Additional Comments -->
+        <br>
+        <b>Additional Comments</b><br>
+        <textarea name="Text1" cols="40" rows="5"></textarea>
+
+        <!-- Submit button -->
+        <br>
+        <input type="reset"/>
+        <input type="submit"/>
+    </form>
+</body>
+</html>
