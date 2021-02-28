@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/table"
+    android:stretchColumns="*"
+    android:shrinkColumns="*">
+    <TableRow
+        android:id= "@+id/row0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cell_shape">
+        <TextView
+            android:layout_span="6"
+            android:textSize="20dp"
+            android:text="Weather Report"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"/>
+    </TableRow>
+
+</TableLayout>
