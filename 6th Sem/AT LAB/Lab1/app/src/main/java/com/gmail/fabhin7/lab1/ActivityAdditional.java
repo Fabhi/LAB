@@ -8,11 +8,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class ActivityAdditional extends AppCompatActivity {
-    Object[][] data = {
+    String[][] data = {
             {" ", "M", "T", "W", "T",  "F"},
             {"Day High", "34°C", "35°C", "34°C", "35°C", "33°C"},
             {"Day Low", "28°C", "27°C", "29°C", "26°C", "29°C"},
             {"Conditions"}};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,24 +32,19 @@ public class ActivityAdditional extends AppCompatActivity {
         }
     }
 
-    public void updateRow(int index, Object[] array){
+    public void updateRow(int index, String[] array){
         TableRow row = findViewById(100+index);
-        if(index==3){
+        for (String o : array) {
             TextView tv = (TextView) getLayoutInflater().inflate(R.layout.text_cell, null);
-            tv.setText(String.valueOf(array[0]));
+            tv.setText(o);
             row.addView(tv);
+        }
+        if(index==3){
             for(int i=0;i<5;i++){
                 ImageView iv = (ImageView) getLayoutInflater().inflate(R.layout.image_cell, null);
                 iv.setImageResource(android.R.drawable.btn_star_big_on);
                 row.addView(iv);
             }
-            return;
         }
-        for(int i=0; i<6; i++){
-            TextView tv = (TextView) getLayoutInflater().inflate(R.layout.text_cell, null);
-            tv.setText(String.valueOf(array[i]));
-            row.addView(tv);
-        }
-
     }
 }

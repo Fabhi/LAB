@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,16 +40,14 @@ public class Activity1 extends AppCompatActivity {
 
                 if (validEmail){
                     emailEdit.setBackgroundResource(R.drawable.edtnormal);
-                }
-                else {
+                } else {
                     emailEdit.setError("Invalid Email");
                     emailEdit.setBackgroundResource(R.drawable.edterr);
                 }
 
                 if (validNumber){
                     numberEdit.setBackgroundResource(R.drawable.edtnormal);
-                }
-                else {
+                } else {
                     numberEdit.setError("Mobile Number should be 7-13 digits");
                     numberEdit.setBackgroundResource(R.drawable.edterr);
                 }
@@ -65,9 +64,9 @@ public class Activity1 extends AppCompatActivity {
                     passwordEdit.setBackgroundResource(R.drawable.edterr);
                 }
 
-                if(allValid)
+                if(allValid) {
                     Toast.makeText(getApplicationContext(), "Welcome " + nameEdit.getText(), Toast.LENGTH_SHORT).show();
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(), "Invalid Entries found", Toast.LENGTH_SHORT).show();
                 }
             }

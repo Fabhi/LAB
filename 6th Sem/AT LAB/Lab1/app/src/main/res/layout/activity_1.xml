@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:padding="20dp"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full Name"/>
+        android:text="Full Name" />
 
     <EditText
         android:id="@+id/name_edit"
@@ -18,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         tools:hint="Enter your name"
-        android:inputType="text"/>
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/email_view"
@@ -74,7 +75,5 @@
         android:text="Next"
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"/>
-
-
 
 </LinearLayout>
