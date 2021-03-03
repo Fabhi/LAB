@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:padding="20dp"
@@ -18,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        tools:hint="Enter your name"
+        android:hint="Enter your name"
         android:inputType="text" />
 
     <TextView
@@ -32,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        tools:hint="Enter your email address"
+        android:hint="Enter your email address"
         android:inputType="textEmailAddress"/>
 
     <TextView
@@ -46,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        tools:hint="Enter your mobile number"
+        android:hint="Enter your mobile number"
         android:inputType="phone"/>
 
     <TextView
@@ -60,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        tools:hint="Enter your password"
+        android:hint="Enter your password"
         android:inputType="textPassword"/>
 
     <Button
