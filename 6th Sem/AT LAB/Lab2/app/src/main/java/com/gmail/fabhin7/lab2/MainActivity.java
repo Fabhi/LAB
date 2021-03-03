@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // Do not write anything here onwards into the AT manual
+    //Do not write anything here onwards into the AT manual
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.mymenu, menu);
