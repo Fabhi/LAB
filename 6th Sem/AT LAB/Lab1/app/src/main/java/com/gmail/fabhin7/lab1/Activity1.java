@@ -90,4 +90,7 @@ public class Activity1 extends AppCompatActivity {
         }
         return false;
     }
+    public void printer(View myView){
+        Toast.makeText(getApplicationContext(),"You pressed the button", Toast.LENGTH_SHORT).show();
+    }
 }

@@ -72,7 +72,11 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:text="Next"
-        android:layout_marginTop="60dp"
+        android:layout_margin="90dp"
         android:layout_gravity="center_horizontal"/>
-
+    <Button android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="printer"
+        android:text="Press me!"
+        />
 </LinearLayout>

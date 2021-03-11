@@ -2,10 +2,14 @@ package com.gmail.fabhin7.lab1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.Console;
 
 public class ActivityAdditional extends AppCompatActivity {
     String[][] data = {
@@ -47,4 +51,6 @@ public class ActivityAdditional extends AppCompatActivity {
             }
         }
     }
+
+
 }

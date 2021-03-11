@@ -28,16 +28,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int numb = Integer.parseInt(String.valueOf(numberInput.getText()));
-
-                if(numb < number)
-                    Toast.makeText(getApplicationContext(), "Too Low", Toast.LENGTH_SHORT).show();
-                else if(numb > number)
-                    Toast.makeText(getApplicationContext(), "Too High", Toast.LENGTH_SHORT).show();
-                else{
-                    Toast.makeText(getApplicationContext(), "You guessed the number", Toast.LENGTH_SHORT).show();
-                    number = rand.nextInt(upperbound);
-                    Toast.makeText(getApplicationContext(), "GAME RESET", Toast.LENGTH_SHORT).show();
-                }
+                String string;
+                if(numb < number) string="Too Low";
+                else if(numb > number) string="Too High";
+                else string="You guessed correctly!";
+                Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
             }
         });
     }

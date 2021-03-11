@@ -32,21 +32,20 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //Do not write anything here onwards into the AT manual
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.mymenu, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-//
-//    // handle button activities
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if (id == R.id.mybutton) {
-//            startActivity(new Intent(MainActivity.this, MainActivity2.class));
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mymenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.mybutton) {
+            startActivity(new Intent(MainActivity.this, MainActivity2.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
