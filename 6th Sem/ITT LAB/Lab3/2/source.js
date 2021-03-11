@@ -17,5 +17,7 @@ function convert(initialString){
 function updateStatus(){
     var text = document.getElementById("inputText").value;
     var converted = convert(text);
-    document.getElementById("output").textContent = converted;
+    var d1 = document.getElementById("output");
+    d1.insertAdjacentHTML('afterbegin', '<p>' + converted + '</p>');
+    console.log(d1.innerHTML);
 }

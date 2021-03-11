@@ -1,0 +1,26 @@
+#squareTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#squareTable td, #squareTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+  
+#squareTable tr:nth-child(even){
+    background-color: #e4e4e4;
+}
+  
+#squareTable tr:hover {
+    background-color: #ddd;
+}
+  
+#squareTable th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #df9917;
+    color: white;
+}
