@@ -1,0 +1,19 @@
+.boxed {
+    height : 300px;
+    width : 300px;
+    
+    color : white;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    font-size: 3rem;
+    /* To center the text vertically in the Paragraph tag */
+    line-height: 300px; 
+
+    position: absolute;
+    margin : auto;
+    left :0;
+    right : 0;
+    top : 0;
+    bottom : 0;
+}
+
