@@ -2,38 +2,19 @@ package com.gmail.fabhin7.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    static int upperbound = 11;
-    int number;
-
+    Button eval, q1, q2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Random rand = new Random();
-        number = rand.nextInt(upperbound);
-
-        EditText numberInput = findViewById(R.id.number_input);
-        Button checkButton = findViewById(R.id.check_button);
-
-        checkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int numb = Integer.parseInt(String.valueOf(numberInput.getText()));
-                String string;
-                if(numb < number) string="Too Low";
-                else if(numb > number) string="Too High";
-                else string="You guessed correctly!";
-                Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
-            }
-        });
+        findViewById(R.id.eval_app).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EvalActivity.class)));
+        findViewById(R.id.q1).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q1Activity.class)));
+        findViewById(R.id.q2).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q2Activity.class)));
     }
 }

@@ -23,17 +23,14 @@ public class MainActivity2 extends AppCompatActivity {
         Button button = findViewById(R.id.button);
         TextView cipherText = findViewById(R.id.cipher_text);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text = String.valueOf(plainText.getText());
-                char[] array = text.toCharArray();
-                for (int i=0;i< array.length;i++){
-                    array[i]+= 1;
-                    if(array[i]>'z') array[i] -= 26;
-                }
-                cipherText.setText(String.valueOf(array));
+        button.setOnClickListener(v -> {
+            String text = String.valueOf(plainText.getText());
+            char[] array = text.toCharArray();
+            for (int i=0;i< array.length;i++){
+                array[i]+= 1;
+                if(array[i]>'z') array[i] -= 26;
             }
+            cipherText.setText(String.valueOf(array));
         });
     }
 

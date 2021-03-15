@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:id="@+id/parent"
-    android:orientation="vertical">
-    <EditText
-        android:id="@+id/number_input"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:inputType="number"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
     <Button
-        android:id="@+id/check_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Check Number"/>
+        android:text="Evaluation Question"
+        android:id="@+id/eval_app">
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Q1. Gallery App"
+        android:id="@+id/q1">
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Q2. Feedback Form"
+        android:id="@+id/q2">
+    </Button>
 </LinearLayout>

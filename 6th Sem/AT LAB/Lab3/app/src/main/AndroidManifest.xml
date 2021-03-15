@@ -9,14 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab3">
-        <activity android:name=".MainActivity"
-            android:label="Guess a Number">
+        <activity android:name=".Q2ActivityConfirm"></activity>
+        <activity android:name=".SelectedActivity" />
+        <activity android:name=".Q2Activity" />
+        <activity android:name=".Q1Activity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EvalActivity"
+            android:label="Guess a Number" />
     </application>
 
 </manifest>
