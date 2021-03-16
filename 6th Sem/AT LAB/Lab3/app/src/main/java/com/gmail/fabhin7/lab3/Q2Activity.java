@@ -2,20 +2,14 @@ package com.gmail.fabhin7.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Switch;
-
-import com.google.android.material.slider.Slider;
 
 public class Q2Activity extends AppCompatActivity {
 
@@ -34,7 +28,7 @@ public class Q2Activity extends AppCompatActivity {
             device += ((CheckBox)findViewById(R.id.iPhoneCheck)).isChecked() ? "Iphone " : "";
             device += ((CheckBox)findViewById(R.id.otherCheck)).isChecked() ? "Others" : "";
             comments = ((EditText) findViewById(R.id.comments)).getText().toString();
-            rating = String.valueOf(((RatingBar) findViewById(R.id.rating_bar)).getRating());
+            rating = ((RatingBar) findViewById(R.id.rating_bar)).getRating() +"/5.0";
             notified = String.valueOf(((Switch) findViewById(R.id.registered)).isChecked());
 
 

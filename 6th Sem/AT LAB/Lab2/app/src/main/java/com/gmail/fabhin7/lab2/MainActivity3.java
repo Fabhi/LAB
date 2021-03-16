@@ -16,18 +16,14 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         setActivityBackgroundColor(Color.parseColor("#000000"));
 
-        SeekBar red, green, blue;
-        red = findViewById(R.id.seek_red);
-        green = findViewById(R.id.seek_green);
+        SeekBar red = findViewById(R.id.seek_red),
+        green = findViewById(R.id.seek_green),
         blue = findViewById(R.id.seek_blue);
         Button updateButton = findViewById(R.id.update_button);
 
-        updateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int color = Color.rgb(red.getProgress(),green.getProgress(), blue.getProgress());
-                setActivityBackgroundColor(color);
-            }
+        updateButton.setOnClickListener(v -> {
+            int color = Color.rgb(red.getProgress(),green.getProgress(), blue.getProgress());
+            setActivityBackgroundColor(color);
         });
     }
 

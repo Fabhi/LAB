@@ -18,7 +18,7 @@ public class Q2ActivityConfirm extends AppCompatActivity {
         ((TextView) findViewById(R.id.gender_view)).setText(intent.getStringExtra("Gender"));
         ((TextView) findViewById(R.id.device_view)).setText(intent.getStringExtra("Device"));
         ((TextView) findViewById(R.id.comments_view)).setText(intent.getStringExtra("Comments"));
-        ((TextView) findViewById(R.id.rating_view)).setText(intent.getStringExtra("Rating") + "/5.0");
+        ((TextView) findViewById(R.id.rating_view)).setText(intent.getStringExtra("Rating"));
         ((TextView) findViewById(R.id.notified_view)).setText(intent.getStringExtra("Notified"));
     }
 }
