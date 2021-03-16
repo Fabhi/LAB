@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab3">
-        <activity android:name=".Q2ActivityConfirm"></activity>
+        <activity android:name=".Q2ActivityConfirm" />
         <activity android:name=".SelectedActivity" />
         <activity android:name=".Q2Activity" />
         <activity android:name=".Q1Activity" />
