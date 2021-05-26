@@ -28,56 +28,48 @@ public class Activity1 extends AppCompatActivity {
         passwordEdit = findViewById(R.id.password_edit);
         validateButton = findViewById(R.id.validate_button);
         nextPageButton = findViewById(R.id.next_page_button);
-        validateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        validateButton.setOnClickListener(view -> {
 
-                boolean validEmail = isValidEmail(emailEdit.getText());
-                boolean validNumber = isValidMobile(numberEdit.getText());
-                boolean validName = !TextUtils.isEmpty(nameEdit.getText());
-                boolean validPassword = !TextUtils.isEmpty(passwordEdit.getText());
-                boolean allValid = validEmail && validNumber && validName && validPassword;
+            boolean validEmail = isValidEmail(emailEdit.getText());
+            boolean validNumber = isValidMobile(numberEdit.getText());
+            boolean validName = !TextUtils.isEmpty(nameEdit.getText());
+            boolean validPassword = !TextUtils.isEmpty(passwordEdit.getText());
+            boolean allValid = validEmail && validNumber && validName && validPassword;
 
-                if (validEmail){
-                    emailEdit.setBackgroundResource(R.drawable.edtnormal);
-                } else {
-                    emailEdit.setError("Invalid Email");
-                    emailEdit.setBackgroundResource(R.drawable.edterr);
-                }
+            if (validEmail){
+                emailEdit.setBackgroundResource(R.drawable.edtnormal);
+            } else {
+                emailEdit.setError("Invalid Email");
+                emailEdit.setBackgroundResource(R.drawable.edterr);
+            }
 
-                if (validNumber){
-                    numberEdit.setBackgroundResource(R.drawable.edtnormal);
-                } else {
-                    numberEdit.setError("Mobile Number should be 7-13 digits");
-                    numberEdit.setBackgroundResource(R.drawable.edterr);
-                }
+            if (validNumber){
+                numberEdit.setBackgroundResource(R.drawable.edtnormal);
+            } else {
+                numberEdit.setError("Mobile Number should be 7-13 digits");
+                numberEdit.setBackgroundResource(R.drawable.edterr);
+            }
 
-                if (validName) {
-                    nameEdit.setBackgroundResource(R.drawable.edtnormal);
-                } else {
-                    nameEdit.setBackgroundResource(R.drawable.edterr);
-                }
+            if (validName) {
+                nameEdit.setBackgroundResource(R.drawable.edtnormal);
+            } else {
+                nameEdit.setBackgroundResource(R.drawable.edterr);
+            }
 
-                if (validPassword){
-                    passwordEdit.setBackgroundResource(R.drawable.edtnormal);
-                } else {
-                    passwordEdit.setBackgroundResource(R.drawable.edterr);
-                }
+            if (validPassword){
+                passwordEdit.setBackgroundResource(R.drawable.edtnormal);
+            } else {
+                passwordEdit.setBackgroundResource(R.drawable.edterr);
+            }
 
-                if(allValid) {
-                    Toast.makeText(getApplicationContext(), "Welcome " + nameEdit.getText(), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Entries found", Toast.LENGTH_SHORT).show();
-                }
+            if(allValid) {
+                Toast.makeText(getApplicationContext(), "Welcome " + nameEdit.getText(), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Invalid Entries found", Toast.LENGTH_SHORT).show();
             }
         });
 
-        nextPageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Activity1.this, ActivityAdditional.class));
-            }
-        });
+        nextPageButton.setOnClickListener(v -> startActivity(new Intent(Activity1.this, ActivityAdditional.class)));
     }
 
     public static boolean isValidEmail(CharSequence target) {

@@ -8,13 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button eval, q1, q2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.eval_app).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EvalActivity.class)));
-        findViewById(R.id.q1).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q1Activity.class)));
-        findViewById(R.id.q2).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q2Activity.class)));
+        findViewById(R.id.first).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EvalActivity.class)));
+        findViewById(R.id.second).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q1Activity.class)));
+        findViewById(R.id.third).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Q2Activity.class)));
     }
 }

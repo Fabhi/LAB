@@ -1,36 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:layout_gravity="center">
-    <EditText
-        android:layout_width="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter element"
-        android:id="@+id/element_edit"/>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:text="Evaluation Question"
+        android:id="@+id/first">
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_add"
-            android:id="@+id/add_button"/>
-        <ImageButton
-            android:id="@+id/minus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_input_delete"/>
-    </LinearLayout>
-
-    <Spinner
-        android:id="@+id/element_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </Spinner>
-
+        android:text="Q1. Quiz"
+        android:id="@+id/second">
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A1. Alarm"
+        android:id="@+id/third">
+    </Button>
 </LinearLayout>

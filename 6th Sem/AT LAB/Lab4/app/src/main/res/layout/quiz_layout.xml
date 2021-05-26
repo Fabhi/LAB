@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/spacer"/>
+
+    <TextView
+        android:layout_below="@id/spacer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/question"
+        tools:text="Sample question for a sample work"
+        android:layout_above="@id/button_1"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Option 1"
+        android:id="@+id/button_1"
+        android:layout_above="@id/button_2"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Option 2"
+        android:id="@+id/button_2"
+        android:layout_above="@id/button_3"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Option 3"
+        android:id="@+id/button_3"
+        android:layout_above="@id/button_4"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Option 4"
+        android:id="@+id/button_4"
+        android:layout_above="@id/spacer2"
+        android:layout_centerHorizontal="true"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom ="true"
+        android:id="@+id/spacer2"/>
+</RelativeLayout>

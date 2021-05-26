@@ -9,18 +9,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Evaluation Question"
-        android:id="@+id/eval_app">
+        android:id="@+id/first">
     </Button>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Q1. Gallery App"
-        android:id="@+id/q1">
+        android:id="@+id/second">
     </Button>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Q2. Feedback Form"
-        android:id="@+id/q2">
+        android:id="@+id/third">
     </Button>
 </LinearLayout>
