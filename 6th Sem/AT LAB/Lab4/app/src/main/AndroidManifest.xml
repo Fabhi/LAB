@@ -12,14 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab4">
-        <receiver
-            android:name=".AlarmPage"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="alarm_went_off"/>
-            </intent-filter>
-        </receiver>
+        <receiver android:name="AlarmReceiver"/>
 
         <activity android:name=".ResultActivity" />
         <activity android:name=".MainActivity">
