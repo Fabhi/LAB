@@ -8,11 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class A1Activity extends AppCompatActivity {
     Calendar alarmTime = Calendar.getInstance();
+    String dateTime;
     TimePicker timePicker;
     Button button;
 
@@ -21,6 +25,8 @@ public class A1Activity extends AppCompatActivity {
         alarmTime.set(Calendar.MINUTE, timePicker.getCurrentMinute());
         alarmTime.set(Calendar.SECOND, 0);
         alarmTime.set(Calendar.MILLISECOND, 0);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
+        dateTime= dateFormat.format(alarmTime.getTime());
     }
 
     @Override
@@ -36,6 +42,8 @@ public class A1Activity extends AppCompatActivity {
             AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, new Intent(context, AlarmReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT);
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(), pendingIntent);
+
+            Toast.makeText(context, "Alarm was set for " + dateTime, Toast.LENGTH_SHORT).show();
         });
     }
 }
