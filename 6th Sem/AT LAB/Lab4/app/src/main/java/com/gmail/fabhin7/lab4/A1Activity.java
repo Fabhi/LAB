@@ -25,6 +25,8 @@ public class A1Activity extends AppCompatActivity {
         alarmTime.set(Calendar.MINUTE, timePicker.getCurrentMinute());
         alarmTime.set(Calendar.SECOND, 0);
         alarmTime.set(Calendar.MILLISECOND, 0);
+
+        //Formatting date and time for display in Toast
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa", Locale.US);
         dateTime= dateFormat.format(alarmTime.getTime());
     }
@@ -39,8 +41,8 @@ public class A1Activity extends AppCompatActivity {
 
         button.setOnClickListener( v -> {
             createCalendar();
-            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, new Intent(context, AlarmReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(), pendingIntent);
 
             Toast.makeText(context, "Alarm was set for " + dateTime, Toast.LENGTH_SHORT).show();

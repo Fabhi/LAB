@@ -3,9 +3,9 @@ import sqlite3
 # create a connection and a cursor object
 try:
     connection = sqlite3.connect('test.db')
-    print("Opened Database Successfully")
+    print("Opened Database Successfully ✔")
     cursor = connection.cursor()
-    print("Opened Cursor Successfully")
+    print("Opened Cursor Successfully ✔")
 except Exception as e:
     print("Error occured", e)
 
@@ -40,12 +40,13 @@ cursor.executemany("INSERT INTO STUDENT VALUES (?, ?, ?, ?, ?, ?, ?)", students)
 
 
 # Displaying all rows
-print("Inserted Data:")
+print("\nInserted Data:")
 for row in cursor.execute("SELECT * FROM STUDENT"):
     print(row)
 
 
 # Searching for the student with regno = 180911111
-print("Query:")
-for row in cursor.execute("SELECT * FROM STUDENT WHERE REGNO = (?)", (180911111,)):
+query_term = int(input("\nEnter the registration number of student to search for: "))
+print("Query Output:")
+for row in cursor.execute("SELECT * FROM STUDENT WHERE REGNO = (?)", (query_term,)):
     print(row)

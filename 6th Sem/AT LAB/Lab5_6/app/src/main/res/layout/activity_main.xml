@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/controls"
+        android:fillViewport="true">
+        <ListView
+            android:id="@+id/listView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            >
+        </ListView>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/controls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="7dp"
+        android:elevation="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please select a title"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/textView">
+
+        </TextView>
+        <SeekBar
+            android:id="@+id/seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+        </SeekBar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/reset"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:layout_margin="3dp"
+                android:text="Reset"
+                android:layout_gravity="center_vertical"
+                android:background="@color/cardview_light_background"
+                android:elevation="4dp"
+                android:src="@android:drawable/ic_menu_revert"
+                >
+            </ImageButton>
+            <ImageButton
+                android:id="@+id/playPause"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:layout_margin="3dp"
+                android:src="@android:drawable/ic_media_play"
+                android:background="@color/cardview_light_background"
+                android:elevation="20dp"
+                android:text = "Play/Pause"
+                >
+            </ImageButton>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="2"
+                android:gravity="center"
+                >
+                <Button
+                    android:id="@+id/volUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Volume+">
+                </Button>
+                <Button
+                    android:id="@+id/volDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Volume-">
+                </Button>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
